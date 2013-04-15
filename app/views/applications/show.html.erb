@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @application.title %>
+</p>
+
+<p>
+  <b>Version:</b>
+  <%= @application.version %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%= @application.type %>
+</p>
+
+<p>
+  <b>Device type:</b>
+  <%= @application.device_type %>
+</p>
+
+<p>
+  <b>Application name:</b>
+  <%= @application.application_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_application_path(@application) %> |
+<%= link_to 'Back', applications_path %>

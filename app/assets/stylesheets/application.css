@@ -14,6 +14,55 @@
 
 
 body{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 12px;
     overflow:hidden;
-    background:url('/assets/bg.png');
+    /*background:url('/assets/bg.png');*/
+}
+
+/*sign_up page css*/
+
+.containerwrapper {
+	background-color: #C90404;
+	border-radius: 15px ;
+	font-family: 'Source Sans Pro', sans-serif;
+	height: 250px;
+	width: 550px;
+	position: absolute;
+	left: 33%;
+	overflow:hidden;
+	top: 300px;
+	bottom: 100px;
+}
+
+
+.rowwrapper{
+	margin-left :20px;
+}
+
+
+
+/*Footer*/
+.footer {
+	float: left;
+	margin-bottom: 5px;
+	color: #999;
+	font-size: 10px;
+	margin-top :840px;
+	margin-left :20px;
+	margin-right :100px;
+}
+
+/*Header*/
+.header {
+	background-color: #C90404;
+	font-family: 'Source Sans Pro', sans-serif;
+	height: 35px;
+	overflow:hidden;
+	width: 100%;
+}
+
+.headerwrapper {
+
+	font-weight: 5px;
 }

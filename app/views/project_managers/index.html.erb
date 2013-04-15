@@ -1,0 +1,23 @@
+<h1>Listing project_managers</h1>
+
+<table>
+  <tr>
+    <th>Project Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project_managers.each do |project_manager| %>
+  <tr>
+    <td><%= project_manager.project_name %></td>
+    <td><%= link_to 'Show', project_manager %></td>
+    <td><%= link_to 'Edit', edit_project_manager_path(project_manager) %></td>
+    <td><%= link_to 'Destroy', project_manager, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project manager', new_project_manager_path %>
