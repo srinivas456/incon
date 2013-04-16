@@ -1,20 +1,22 @@
 
 
-<h1>Listing project_managers</h1>
+<h2 class="Title4">Listing project_managers</h2>
 
-<table>
+<div class="Table">
+
+<table class="hovertable">
   <tr>
-    <td>Id</td>
-    <td>Project Name</td>
-    <td>App Name</td>
-    <td>Created On</td>
-    <td>Controls</td>
+    <th>Id</th>
+    <th>Project Name</th>
+    <th>App Name</th>
+    <th>Created On</th>
+    <th>Controls</th>
 
   </tr>
 
   
 <% @project_managers.each do |project_manager| %>
-  <tr>
+  <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
     <td><%= project_manager.id %></td>
     <td><%= project_manager.project_name %></td>
     <td>
@@ -32,5 +34,8 @@
 </table>
 
 <br />
+</div>
 
 <%#= link_to 'New Project manager', new_project_manager_path %>
+
+<!-- Table goes in the document BODY -->

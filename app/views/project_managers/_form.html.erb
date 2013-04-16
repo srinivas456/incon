@@ -1,10 +1,11 @@
-
-<%= simple_form_for @project_manager do |f| %>
- <%= f.input :project_name %>
+   <div class="ContentsForm">
+	<%= simple_form_for @project_manager do |f| %>
+ 		<%= f.input :project_name %>
 	 <%= f.fields_for :applications do |builder| %>
-	 <%= builder.input :application_name %>
+	 	<%= builder.input :application_name %>
 	 <% end %>
- <%= f.submit %>
-<% end %>
+ 		<%= f.submit "Create App" %>
+	<% end %>
+   </div>
  
 

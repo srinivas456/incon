@@ -1,24 +1,211 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%=I18n.locale.to_s%>">
 <head>
-  <title>Incon</title>
-  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300italic,300,200italic' rel='stylesheet' type='text/css'>
-
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <link href="/favicon.ico" type="image/png" rel="shortcut icon">
-
+  <meta charset="utf-8" />
+  <title>Mobilous AppExe Console</title>
+  <script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.ico" />
+  <link href="/stylesheets/application.css" rel="stylesheet" type="text/css" media="screen" />
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag :application %>
+  <script src="/mediaelement/mediaelement-and-player.min.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/application.css" />
+  <!--[if IE 7]>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" />
+  <![endif]-->
+  <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/ie8.css" />
+  <![endif]-->  
+  <!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/ie6.css" />
+  <![endif]--> 
 </head>
+
 <body>
-	<div class="header">
-        <%= render "/layouts/shared/header" -%>
-    </div>
+<div id="Wrapper">
+    <div id="TopWrapper">
+      <div id="Top">
+            <div id="Logo">
+                <%= link_to image_tag('logo_developer.png') -%>
+            </div>
+            <div id="Navigation">
+              <div id="menu" class="xtc-wrapper">
+                <ul class="menu dualfish">
+        <% if @current_user %>
+        <% if user_dashboard? %><li id="current" class="active"><% else %><li><% end %>
+                <a href="<%='/'+I18n.locale.to_s+'/dashboard'%>"><span><%=t('topmenu.dashboard')%></span></a></li>
+                <% if build_app? %><li id="current" class="active"><% else %><li><% end %>
+                <a href="<%='/'+I18n.locale.to_s+'/build-app'%>"><span><%=t('topmenu.buildApp')%></span></a></li>
 
+                <% if test_app? %><li id="current" class="active"><% else %><li><% end %>
+                <a href="<%='/'+I18n.locale.to_s+'/test-apps'%>"><span><%=t('topmenu.testApp')%></span></a></li>
 
-<%= yield %>
-	<div class="footer">
-        <%= render "/layouts/shared/footer" -%>
-    </div>
+                <% if release_app? %><li id="current" class="active"><% else %><li><% end %>
+                <a href="<%='/'+I18n.locale.to_s+'/release-apps'%>"><span><%=t('releaseApp.releaseApps')%></span></a></li>
+
+                <% if submit_app? %><li id="current" class="active"><% else %><li><% end %>
+                <a href="<%='/'+I18n.locale.to_s+'/submit-apps'%>"><span><%=t('topmenu.submitApps')%></span></a></li>
+
+                <% unless singtel_user?(@current_user) %>
+                <% if helpdesk? %><li id="current" class="active"><% else %><li><% end %>
+                <a href="<%='/'+I18n.locale.to_s + '/users/' + @current_user.uuid + '/helpdesk'%>"><span><%=t('topmenu.feedback')%></span></a></li>
+                <% end %>
+
+                <% if I18n.locale.to_s == 'en' %>
+                  <% unless singtel_user?(@current_user) %>
+                    <li><a href="http://help.mobilous.com/en/index.html" target="_blank">Help</a></li>
+                  <% else %>
+                    <li><a href="http://help-singtel.mobilous.com/en/index.html" target="_blank">Help</a></li>
+                  <% end %>
+                <% else %>
+                  <% unless singtel_user?(@current_user) %>
+                    <li><a href="http://help.mobilous.com/jp/index.html" target="_blank">ヘルプ</a></li>
+                  <% else %>
+                    <li><a href="http://help-singtel.mobilous.com/jp/index.html" target="_blank">ヘルプ</a></li>
+                  <% end %>
+                <% end %>
+                
+                <% if @current_user.roles.member?("mobiadmin") %>
+                <% if admin_manager? %><li id="current" class="active"><% else %><li><% end %>
+                <a href="<%='/'+I18n.locale.to_s + '/admin/dashboard'%>"><span><%=t('topmenu.adminManager')%></span></a></li>
+                <% end %>
+
+                <% end %>
+                </ul>
+              </div><!-- menu xtc-wrapper -->
+            </div><!-- Navigation -->
+            
+                    
+        </div><!-- Top -->
+    </div><!-- TopWrapper -->
+  <div id="Content1Wrapper">
+          <div id="Content1"></div><!-- Content -->
+    </div><!-- Content1Wrapper -->
+  
+  <div id="Content2Wrapper">
+  <div id="Content2">
+  <!-- <%# if toppage? %>     Commented by Srinivas                  -->  
+      <%= yield %>
+  <%# else %>
+        <div id="generalContent" class="height">      
+          <div class="generalColumn generalColumn1 fl borderRight">
+              <% if (@current_user && build_app?) %>
+                <ul>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/build-app')%>"><a href="<%='/'+I18n.locale.to_s + '/build-app'%>"><%=t('buildAppmenu.buildApp')%> <span class="fr clear">&rarr;</span></a>
+                    <li class="<%='on' if resource_manager?%>"><a href="<%='/'+I18n.locale.to_s+'/resource-manager'%>"><%=t('buildAppmenu.resourceManager')%> <span class="fr clear">→</span></a></li>
+                    <!--<li class="<%='on' if location_manager?%>"><a href="<%='/'+I18n.locale.to_s+'/location-manager'%>"><%=t('buildAppmenu.locationManager')%> <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%='on' if database_manager?%>"><a href="<%='/'+I18n.locale.to_s+'/database-manager'%>"><%=t('buildApp.databaseManager')%> <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%='on' if plugin_manager?%>"><a href="<%='/'+I18n.locale.to_s+'/plugin-manager'%>"><%=t('buildApp.pluginManager')%> <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%='on' if view_manager?%>"><a href="<%='/'+I18n.locale.to_s+'/view-manager'%>"><%=t('buildApp.viewManagerTitle')%> <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%='on' if script_manager?%>"><a href="<%='/'+I18n.locale.to_s+'/script-manager'%>"><%=t('buildApp.scriptManager')%> <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/service-manager')%>"><a href="<%='/'+I18n.locale.to_s+'/service-manager'%>"><%=t('buildAppmenu.serviceManager')%> <span class="fr clear">&rarr;</span></a></li>-->
+                    <!--
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/users/' + @current_user.uuid + '/builder-backup')%>"><a href="<%='/'+I18n.locale.to_s + '/users/' + @current_user.uuid + '/builder-backup'%>">Backup/Restore Apps <span class="fr clear">&rarr;</span></a></li>
+                    -->
+                    <!--
+                    <% unless @current_user.roles.member?('devmember') %>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/update-builder')%>"><a href="<%='/'+I18n.locale.to_s+'/update-builder'%>"><%=t('buildApp.updateBuilder')%> <span class="fr clear">&rarr;</span></a></li>
+                    <% end %>
+                    -->
+                </ul>
+                <% elsif (@current_user && test_app?) %>
+                <ul>
+                    <li class="<%= 'on' if test_app? %>"><a href="<%='/'+I18n.locale.to_s + '/test-apps'%>"><%=t('testAppmenu.deviceManager')%> <span class="fr clear">&rarr;</span></a></li>
+                </ul>
+                <% elsif (@current_user && release_app?) %>
+                <ul>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/release-apps') %>"><a href="<%='/'+I18n.locale.to_s + '/release-apps'%>"><%=t('releaseApp.releaseApps')%> <span class="fr clear">&rarr;</span></a></li>
+                    <% if direct_user?(@user) %><%#UPDATED%>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/application-plans') %>"><a href="<%='/'+I18n.locale.to_s + '/application-plans'%>"><%=t('topmenu.appPlan')%> <span class="fr clear">&rarr;</span></a></li>
+                    <% end %>
+                </ul>
+                <% elsif (@current_user && submit_app?) %>
+                <ul>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/submit-apps') %>"><a href="<%='/'+I18n.locale.to_s + '/submit-apps'%>"><%=t('topmenu.submitApps')%> <span class="fr clear">&rarr;</span></a></li>
+                </ul>
+                <% elsif (@current_user && user_dashboard?) %>
+                <ul>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/dashboard')%>"><a href="<%='/'+I18n.locale.to_s + '/dashboard'%>"><%=t('topmenu.dashboard')%> <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/users/user-info')%>"><a href="<%='/'+I18n.locale.to_s+'/users/user-info/'+@current_user.username %>"><%=t('userInfomenu.userProfile')%> <span class="fr clear">&rarr;</span></a></li>
+        <% unless singtel_user?(@current_user) %>
+          <% if silver_gold_user?(@current_user)%>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/devmanager/member-manager')%>"><a href="<%='/'+I18n.locale.to_s + '/devmanager/member-manager'%>"><%=t('dashboard.memberManager')%> <span class="fr clear">&rarr;</span></a></li>
+        <% end %>
+        <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/users/cancelation')%>"><a href="<%='/'+I18n.locale.to_s + '/users/cancelation'%>"><%=t('dashboard.cancel')%> <span class="fr clear">&rarr;</span></a></li>
+        <% end %>
+                </ul>
+                <% elsif (@current_user && helpdesk?) %>
+                <ul>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s  + '/users/' + @current_user.uuid + '/helpdesk')%>"><a href="<%='/'+I18n.locale.to_s  + '/users/' + @current_user.uuid + '/helpdesk'%>"><%=t('feedbackmenu.qa')%> <span class="fr clear">&rarr;</span></a>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s  + '/users/' + @current_user.uuid + '/submit-question')%>"><a href="<%='/'+I18n.locale.to_s  + '/users/' + @current_user.uuid + '/submit-question'%>"><%=t('feedbackmenu.submitQuestion')%> <span class="fr clear">&rarr;</span></a>
+                </ul>
+                <%#/ helpdesk %>
+                <% elsif (@current_user && admin_manager? && @current_user.roles.member?("mobiadmin")) %>
+                <ul>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/admin/dashboard')%>"><a href="<%='/'+I18n.locale.to_s + '/admin/user-manager/global/all'%>"><%=t('adminManagerMenu.userManager')%> <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/admin/user-kpi')%>"><a href="<%='/'+I18n.locale.to_s + '/admin/user-kpi'%>">User KPI <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/admin/partners')%>"><a href="<%='/'+I18n.locale.to_s + '/admin/partners'%>">Partners <span class="fr clear">&rarr;</span></a></li><%#UPDATED%>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/partner/coupon-manager')%>"><a href="<%='/'+I18n.locale.to_s + '/partner/coupon-manager'%>">Coupon Manager<span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/admin/product-categories')%>"><a href="<%='/'+I18n.locale.to_s + '/admin/product-categories'%>">Product Categories <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/admin/products')%>"><a href="<%='/'+I18n.locale.to_s + '/admin/products'%>">Products <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/admin/pricings')%>"><a href="<%='/'+I18n.locale.to_s + '/admin/pricings'%>">Pricings <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/admin/promotions')%>"><a href="<%='/'+I18n.locale.to_s + '/admin/promotions'%>">Promotions <span class="fr clear">&rarr;</span></a></li><%#UPDATED%>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/admin/currencies')%>"><a href="<%='/'+I18n.locale.to_s + '/admin/currencies'%>">Currencies <span class="fr clear">&rarr;</span></a></li>
+                    <li class="<%= currentpage_on('/'+I18n.locale.to_s + '/admin/support-helpdesk')%>"><a href="<%='/'+I18n.locale.to_s + '/admin/support-helpdesk'%>"><%=t('adminManagerMenu.supportHelpdesk')%> <span class="fr clear">&rarr;</span></a></li>
+                </ul>
+                <%#/ admin_manager %>
+      <%# end %><!-- Commented by Srinivas -->
+          </div><!-- /generalColumn2 -->
+
+            <div class="generalColumn generalColumn2 fl">
+                <%= yield %>
+            </div><!--MiddleMainRight-->
+            <br class="clear" />     
+        </div><!--/#generalContent -->        
+  <% end %>
+
+  <div id="gotoTop"><a href="#Top"><%=t('goToTop.goToTop')%></a></div>
+
+  </div><!-- Content2 -->
+  </div><!-- Content2Wrapper -->
+  
+  <div id="Content3Wrapper">
+  <div id="Content3"></div><!-- Content -->
+  </div><!-- Content3Wrapper -->
+
+      <div id="FooterBWrapper">
+          <div id="FooterB">
+                <div id="FooterWrapper" style="padding: 20px 35px 0 35px;">
+                    <div id="FooterLeft">&copy; 2013 Mobilous Inc.<br />All Rights Reserved.</div>
+                    <div id="FooterRight"><a href="/en/support/tos">Terms of Service</a>  / <a href="/en/support/privacy">Privacy Policy</a></div>
+          <div class="clearfix"></div>
+                </div><!-- FooterWrapper -->
+            </div><!-- Footer -->
+    </div><!-- FooterBWrapper -->
+
+</div<!-- Wrapper -->
+
+<%= yield :scripts %>
+
+<script type="text/javascript">
+ 
+    $(document).ready(function () {
+        var containerHeight = $('.height').height();
+        $('.generalColumn').height(containerHeight);
+    });
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-23756110-1']);
+  _gaq.push(['_setDomainName', 'mobilous.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+ 
+</script>
+
 </body>
 </html>
