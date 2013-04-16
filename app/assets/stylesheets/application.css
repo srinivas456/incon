@@ -17,7 +17,7 @@
 
 #TopWrapper{background: url('/assets/bg_topheader.jpg') repeat-x;}
 #Content1Wrapper{background: #cccccc;}
-#Content2Wrapper{background: #8e8e8e;}
+#Content2Wrapper{background: #8e8e8e; overflow: hidden;}
 #Content3Wrapper{background: #cccccc;}
 #FooterAWrapper{background: #7b7b7b;}
 #FooterBWrapper{background: #2a2a2a;}
@@ -35,7 +35,12 @@
 #ConsoleMiddle {margin: 0 auto; background: url('/assets/console/cntrlframe_middle.png') repeat-y; width: 1013px;}
 #ConsoleBottom {margin: 0 auto; background: url('/assets/console/cntrlframe_bottom.png') no-repeat; width: 1013px; height: 28px;}
 
+#gotoTop {margin: 80px 90px 0 0; text-align: right; font-size: xx-small; font-weight: bold; text-align: right; text-indent: 15px;}
 
+.clearfix:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+.clearfix { min-height:1%; } /*investigate if removable*/
+* html .clearfix { height:1%; }
+.clearfix { display:block; }
 /* ------------  Logo  ------------- */
 
 #Logo {float: left; padding: 10px 60px 0 60px;}
@@ -43,16 +48,27 @@
 
 #ContentsForm {margin: 0 0 60px 0; padding: 0 0 0 0; width: 860px; height: auto; }
 
+
+.main {
+	background: #8e8e8e;
+	margin-left: 80px;
+	margin-right: 80px;
+}
+
+/*#mainForm {
+	background: #F4FBF9;
+	margin-right: 120px;
+	margin-left: 120px;
+}*/
 .ContentsForm .spacer {
 	padding:10px 0;
 }
 
 h2.Title4 {
-	margin-top: -10px;
+	margin-top: 0px;
 	margin-left: 80px;
 	font: bold 16px/normal Myriad, sans-serif;
 	color: #3d6799;
-	text-shadow: 0 2px 0 rgba(255, 255, 255, .8);
 }
 
 .ContentsForm {

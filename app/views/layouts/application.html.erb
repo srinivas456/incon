@@ -85,7 +85,11 @@
   <div id="Content2Wrapper">
   <div id="Content2">
   <!-- <%# if toppage? %>     Commented by Srinivas                  -->  
+      <div class="main">
+        <div id= "mainForm">
       <%= yield %>
+    </div>
+  </div>
   <%# else %>
         <div id="generalContent" class="height">      
           <div class="generalColumn generalColumn1 fl borderRight">
@@ -172,19 +176,20 @@
   <div id="Content3Wrapper">
   <div id="Content3"></div><!-- Content -->
   </div><!-- Content3Wrapper -->
-
-      <div id="FooterBWrapper">
+<div id="FooterBWrapper">
           <div id="FooterB">
                 <div id="FooterWrapper" style="padding: 20px 35px 0 35px;">
-                    <div id="FooterLeft">&copy; 2013 Mobilous Inc.<br />All Rights Reserved.</div>
-                    <div id="FooterRight"><a href="/en/support/tos">Terms of Service</a>  / <a href="/en/support/privacy">Privacy Policy</a></div>
+                    <div id="FooterLeft">&copy; <%= Time.now.year %> <%=t('footerMenu.copy')%><br /><%=t('footerMenu.copy2')%></div>
+                    <div id="FooterRight"><% if @current_user %><% if I18n.locale.to_s == 'en' %><% unless singtel_user?(@current_user) %><a href="http://help.mobilous.com/en/index.html" target="_blank">Help</a><% else %><a href="http://help-singtel.mobilous.com/en/index.html" target="_blank">Help</a><% end %><% else %><% unless singtel_user?(@current_user) %><a href="http://help.mobilous.com/jp/index.html" target="_blank">ヘルプ</a><% else %><a href="http://help-singtel.mobilous.com/jp/index.html" target="_blank">ヘルプ</a><% end %><% end %> / <a <% if direct_user?(@current_user) %>< a href="<%='/'+I18n.locale.to_s+'/'%>support/billing-terms"><%=t('firstReg.firstRegBillingTermsLink')%></a><% end %> / <% end %><a href="<%='/'+I18n.locale.to_s+'/'%>support/tos"><%=t('footerMenu.tos')%></a>  / <a href="<%='/'+I18n.locale.to_s+'/'%>support/privacy"><%=t('footerMenu.privacy')%></a></div>
           <div class="clearfix"></div>
                 </div><!-- FooterWrapper -->
             </div><!-- Footer -->
     </div><!-- FooterBWrapper -->
 
-</div<!-- Wrapper -->
+</div><!-- Wrapper -->
+<%= yield :scripts %>
 
+</div<!-- Wrapper -->
 <%= yield :scripts %>
 
 <script type="text/javascript">
