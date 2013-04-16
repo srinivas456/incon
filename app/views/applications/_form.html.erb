@@ -21,7 +21,9 @@
   </div>
   <div class="field">
     <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.radio_button(:type, "Navi-Based") %>
+    <%= f.radio_button(:type, "Tab-Based") %>
+    <%= f.radio_button(:type, "View-Based") %>
   </div>
   <div class="field">
     <%= f.label :device_type %><br />

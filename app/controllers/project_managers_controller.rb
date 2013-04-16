@@ -24,11 +24,12 @@ class ProjectManagersController < ApplicationController
   # GET /project_managers/new
   # GET /project_managers/new.json
   def new
+
     @project_manager = ProjectManager.new
-    1.times { @project_manager.applications.build }
-#1.times do     @project_manager.applications.build
-           # end  
+    @project_manager.applications.build 
+
     @project_managers = ProjectManager.all
+           
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @project_manager }

@@ -1,12 +1,13 @@
 Incon::Application.routes.draw do
-  resources :applications
-
-
-  resources :project_managers
+  
 
 
   devise_for :users
+  
+resources :applications
 
+
+  resources :project_managers
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

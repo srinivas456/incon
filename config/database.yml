@@ -4,7 +4,7 @@ development:
   encoding: unicode
   database: incondevdb
   username: postgresuser
-  password: macro129
+  password: nishanth
   pool: 5
   timeout: 5000
   
@@ -13,7 +13,7 @@ test:
   encoding: unicode
   database: incontestdb
   username: postgresuser
-  password: macro129
+  password: nishanth
   pool: 5
   timeout: 5000
 

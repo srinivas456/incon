@@ -5,18 +5,23 @@
 <table>
   <tr>
     <th>Project Name</th>
-    <th></th>
+    <th>Application Name</th>
     <th></th>
     <th></th>
   </tr>
-
+<% if !@project_managers.blank? %>
 <% @project_managers.each do |project_manager| %>
+<% project_manager.applications.each do |t| %>
   <tr>
     <td><%= project_manager.project_name %></td>
+    <td><%= t.application_name %></td>
     <td><%= link_to 'Show', project_manager %></td>
     <td><%= link_to 'Edit', edit_project_manager_path(project_manager) %></td>
     <td><%= link_to 'Destroy', project_manager, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
+  <% end %>
+
+<% end %>
 <% end %>
 </table>
 
