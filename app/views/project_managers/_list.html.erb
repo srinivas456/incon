@@ -4,18 +4,29 @@
 
 <table>
   <tr>
-    <th>Project Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <td>Id</td>
+    <td>Project Name</td>
+    <td>App Name</td>
+    <td>Created On</td>
+    <td>Controls</td>
+
   </tr>
 
+  
 <% @project_managers.each do |project_manager| %>
   <tr>
+    <td><%= project_manager.id %></td>
     <td><%= project_manager.project_name %></td>
-    <td><%= link_to 'Show', project_manager %></td>
-    <td><%= link_to 'Edit', edit_project_manager_path(project_manager) %></td>
-    <td><%= link_to 'Destroy', project_manager, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+    <% for application in @project_manager.applications %>
+    <% project_manager.applications.each do |t| %>
+     <%=  t.application_name %>
+     <% end %>
+    <% end %></td>
+    <td><%= project_manager.created_at.strftime('%d/%m/%Y') %></td>
+    <td><%= link_to 'Edit', edit_project_manager_path(project_manager) %>
+    <%= link_to 'Destroy', project_manager, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Publish' %></td>
   </tr>
 <% end %>
 </table>

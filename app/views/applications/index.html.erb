@@ -12,11 +12,13 @@
     <th></th>
   </tr>
 
+  
+
 <% @applications.each do |application| %>
   <tr>
     <td><%= application.title %></td>
     <td><%= application.version %></td>
-    <td><%= application.type %></td>
+    <td><%#= application.type %></td>
     <td><%= application.device_type %></td>
     <td><%= application.application_name %></td>
     <td><%= link_to 'Show', application %></td>

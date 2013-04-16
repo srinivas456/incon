@@ -1,23 +1,10 @@
-<%= form_for @project_manager do |f| %>
-<%#= f.error_messages %>
-<%#= f.error_notification %>
 
-  <div class="field">
-  project  <%= f.text_field :project_name %>
-  </div>
-
- <%= f.fields_for :applications do |builder| %>
-    <%#= render "application_fields", :f => builder %>
-    <p>
-  <div class="field">
- application   <%= builder.text_field :application_name %>
-  </div>
-</p>
-  <% end %>
-
-  <div class="actions">
-    <%= f.button :submit, :label => "create" %>
-  </div>
-
-<%end%>
+<%= simple_form_for @project_manager do |f| %>
+ <%= f.input :project_name %>
+	 <%= f.fields_for :applications do |builder| %>
+	 <%= builder.input :application_name %>
+	 <% end %>
+ <%= f.submit %>
+<% end %>
+ 
 

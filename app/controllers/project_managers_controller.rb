@@ -25,9 +25,8 @@ class ProjectManagersController < ApplicationController
   # GET /project_managers/new.json
   def new
     @project_manager = ProjectManager.new
-    1.times { @project_manager.applications.build }
-#1.times do     @project_manager.applications.build
-           # end  
+    @project_manager.applications.build
+
     @project_managers = ProjectManager.all
     respond_to do |format|
       format.html # new.html.erb
@@ -37,7 +36,7 @@ class ProjectManagersController < ApplicationController
 
   # GET /project_managers/1/edit
   def edit
-    @project_manager = ProjectManager.find(params[:id])
+    @application = Application.find_by_id(params[:id])
   end
 
   # POST /project_managers
@@ -60,6 +59,7 @@ class ProjectManagersController < ApplicationController
   # PUT /project_managers/1.json
   def update
     @project_manager = ProjectManager.find(params[:id])
+    @application = Application.find_by_id(params[:id])
 
     respond_to do |format|
       if @project_manager.update_attributes(params[:project_manager])

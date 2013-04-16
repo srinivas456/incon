@@ -7,6 +7,10 @@ Incon::Application.routes.draw do
 
   devise_for :users
 
+
+  match '/applications/:id/' => 'applications#create', :as => '_application'
+  match '/applications/:id/edit' => 'applications#edit', :as => 'edit_application'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
