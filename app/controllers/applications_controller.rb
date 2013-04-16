@@ -80,4 +80,9 @@ class ApplicationsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def basicsetting
+  @application = Application.find(params[:id])
+  @pagetitle = "Edit #{@application.name} Application"
+  end
 end
