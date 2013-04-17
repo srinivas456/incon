@@ -82,8 +82,8 @@ class ApplicationsController < ApplicationController
   end
 
  def settings
-    @application = Application.new(params[:application])
-
+    #@application = Application.new(params[:application])
+    @application = Application.find(params[:id])
     respond_to do |format|
       if @application.save
         format.html { rendirect_to @application, notice: 'Application was successfully created.' }
@@ -94,3 +94,4 @@ class ApplicationsController < ApplicationController
       end
     end
   end
+end
