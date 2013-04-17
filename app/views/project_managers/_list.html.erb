@@ -1,9 +1,7 @@
+<h2 class="Title4">Projects List</h2>
 
-
-<h2 class="Title4">Listing project_managers</h2>
-
+<%#= will_paginate @project_manager %>
 <div class="Table">
-
 <table class="hovertable">
   <tr>
     <th>Id</th>
@@ -14,9 +12,9 @@
 
   </tr>
 
-  
 <% @project_managers.each do |project_manager| %>
-  <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
+
+  <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#ffffff';">
     <td><%= project_manager.id %></td>
     <td><%= project_manager.project_name %></td>
     <td>
@@ -26,16 +24,15 @@
      <% end %>
     <% end %></td>
     <td><%= project_manager.created_at.strftime('%d/%m/%Y') %></td>
-    <td><%= link_to 'Edit', edit_project_manager_path(project_manager) %>
+    <td><%#= link_to 'Edit', edit_project_manager_path(project_manager) %>
+      <%= link_to 'Edit', new_application_path(application) %>
     <%= link_to 'Destroy', project_manager, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%= link_to 'Publish' %></td>
+    <%= link_to 'Publish' %>
+    <%= link_to 'Clone' %>
+    <%= link_to 'Test' %>
+  </td>
   </tr>
 <% end %>
 </table>
-
-<br />
+  <br />
 </div>
-
-<%#= link_to 'New Project manager', new_project_manager_path %>
-
-<!-- Table goes in the document BODY -->

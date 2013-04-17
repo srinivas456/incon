@@ -44,7 +44,7 @@ class ApplicationsController < ApplicationController
 
     respond_to do |format|
       if @application.save
-        format.html { redirect_to @application, notice: 'Application was successfully created.' }
+        format.html { render action: "settings" }
         format.json { render json: @application, status: :created, location: @application }
       else
         format.html { render action: "new" }
@@ -81,8 +81,16 @@ class ApplicationsController < ApplicationController
     end
   end
 
-  def basicsetting
-  @application = Application.find(params[:id])
-  @pagetitle = "Edit #{@application.name} Application"
+ def settings
+    @application = Application.new(params[:application])
+
+    respond_to do |format|
+      if @application.save
+        format.html { rendirect_to @application, notice: 'Application was successfully created.' }
+        format.json { render json: @application, status: :created, location: @application }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @application.errors, status: :unprocessable_entity }
+      end
+    end
   end
-end

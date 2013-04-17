@@ -18,7 +18,7 @@
 #TopWrapper{background: url('/assets/bg_topheader.jpg') repeat-x;}
 #Content1Wrapper{background: #cccccc;}
 #Content2Wrapper{background: #8e8e8e; overflow: hidden;}
-#Content3Wrapper{background: #cccccc;}
+#Content3Wrapper{background: #cccccc; width: auto;}
 #FooterAWrapper{background: #7b7b7b;}
 #FooterBWrapper{background: #2a2a2a;}
 
@@ -27,7 +27,7 @@
 #Content1 {background: url('/assets/bg_center_top.jpg') no-repeat; width: 1142px; height: 79px;}
 #Content2 {background: url('/assets/bg_center_middle.jpg') repeat-y;}
 #Content2Top {background: url('/assets/bg_center_middle.jpg') repeat-y;}
-#Content3 {background: url('/assets/bg_center_bottom.jpg') no-repeat; height: 102px;}
+#Content3 {background: url('/assets/bg_center_bottom.jpg') ; width: 1142px; height: 102px;}
 #FooterA {background: #0d1c32;}
 #FooterB {background: url('/assets/bg_footergr.png') repeat-y; height: 96px;}
 
@@ -53,13 +53,19 @@
 	background: #8e8e8e;
 	margin-left: 80px;
 	margin-right: 80px;
+	height: 550px;
+	padding-top: 25px;
 }
 
-/*#mainForm {
-	background: #F4FBF9;
+#mainForm {
+	background: #FFFFFF;
 	margin-right: 120px;
 	margin-left: 120px;
-}*/
+	padding-top: 15px;
+	border-radius: 5px;
+	height: 500px;
+}
+
 .ContentsForm .spacer {
 	padding:10px 0;
 }
@@ -73,13 +79,13 @@ h2.Title4 {
 
 .ContentsForm {
 	margin-left: 70px;
-	font: bold 10px/normal Myriad, sans-serif;
 	margin-bottom: 20px;
 }
 
 
 .Table {
-	margin-left: 180px;
+	margin-left: 100px;
+	border-radius: 
 
 }
 table.hovertable {
@@ -106,3 +112,75 @@ table.hovertable td {
   border-style: solid;
   border-color: #a9c6c9;
 }
+
+ul.nav {
+
+}
+
+.button-app {
+	margin-left: 320px;
+}
+
+
+/* ################################################################################################################# */
+
+/* CSS Document */
+
+body {margin: 0; padding: 0; font: normal 12px/normal Arial, sans-serif; background: #2a2a2a; color: #999;}
+html, body {height: 100%; overflow: auto;} /* For Opera 9.51*/
+h1, h2 {display: inline;}
+ul {margin: 0; list-style: none;}
+a {color: #999;}
+a:hover {color: #3d6799;}
+input[type="text"] select {
+    border: 2px solid #999;
+    font-size: 10px;
+    padding: 2px;
+    margin-top: 3px;
+}
+
+input {width: 158px; text-indent: 5px;}
+select {width: 165px; text-indent: 5px;}
+checkbox {border: 1px solid #999;}
+/*textarea {border: 1px solid #999; width: 162px;}*/
+
+/*
+input {width: 150px; text-indent: 5px;}
+select {width: 160px; text-indent: 5px;}
+textarea {border: 1px solid #999;}
+*/
+
+Top {position: relative; width: 100%; height: 100%; min-height: 100%;}
+body > #Top {height: auto;}
+ 
+.clear {clear: both;}
+
+.green {color: #bce9dd;}
+.inline {display: inline;}
+
+
+
+/* for form */  
+
+
+
+
+/*------------- Addition ---------------*/
+
+
+
+/* ------------  Contents 3  ------------- */
+
+
+
+/* ------------  Console Top  ------------- */
+
+
+/* ------------------  Console List  ----------------- */
+
+
+/* ------------  Button: Managers Left ------------- */
+
+
+/* ------------  Button: Read More ------------- */
+

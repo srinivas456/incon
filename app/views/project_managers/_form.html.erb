@@ -1,11 +1,15 @@
    <div class="ContentsForm">
+   	 
 	<%= simple_form_for @project_manager do |f| %>
- 		<%= f.input :project_name %>
+ 		<%= f.input :project_name, :prompt=>"Project Name cannot be changed, Max of 10 Characters" %>
 	 <%= f.fields_for :applications do |builder| %>
-	 	<%= builder.input :application_name %>
+	 	<%= builder.input :application_name, :hint=>"Application Name can be changed, Max of 15 Characters" %>
 	 <% end %>
+	 <div class = "button-app">
  		<%= f.submit "Create App" %>
+ 	</div>
 	<% end %>
+
    </div>
  
 

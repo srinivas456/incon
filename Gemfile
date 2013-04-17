@@ -43,3 +43,7 @@ gem 'devise'
 
 #Views
 gem "simple_form"
+gem "will_paginate", "~> 3.0.4"
+
+# Search
+gem "pg_search", "~> 0.6.1"
