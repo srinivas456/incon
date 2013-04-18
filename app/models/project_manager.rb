@@ -9,4 +9,14 @@ has_many :applications, :dependent => :destroy
 
 accepts_nested_attributes_for :applications
 
+def self.search(search)
+	 if search	 	
+	    find(:all, :conditions => ['project_name LIKE ? or applications.application_name LIKE ? ', "%#{search}%", "%#{search}%"], :include => [:applications])
+	  else
+	    find(:all)
+	  end
+  end
+
+
+
 end
