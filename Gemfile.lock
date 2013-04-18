@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 7d807c6af3e89c56e2e846352074f2eac1620115
+  specs:
+    paperclip (3.4.1)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.0)
+      mime-types
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -31,6 +42,10 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     builder (3.0.4)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.1)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -62,10 +77,6 @@ GEM
     multi_json (1.7.2)
     orm_adapter (0.4.0)
     pg (0.15.1)
-    pg_search (0.6.1)
-      activerecord (>= 3.1)
-      activesupport (>= 3.1)
-      arel
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -120,7 +131,7 @@ GEM
       multi_json (~> 1.0, >= 1.0.2)
     warden (1.2.1)
       rack (>= 1.0)
-    will_paginate (3.0.4)
+    will_paginate (3.0.pre4)
 
 PLATFORMS
   ruby
@@ -129,11 +140,11 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
   jquery-rails
+  paperclip!
   pg
-  pg_search (~> 0.6.1)
   rails (= 3.2.12)
   sass-rails (~> 3.2.3)
   simple_form
   therubyracer
   uglifier (>= 1.0.3)
-  will_paginate (~> 3.0.4)
+  will_paginate (= 3.0.pre4)

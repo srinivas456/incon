@@ -1,0 +1,8 @@
+
+<div class="ContentsForm">
+  <p>Select the device on which you want to run your application</p>
+  <%#= f.input :application_name %>
+  <%#= f.input :version %>
+   <%= f.input :type, :collection => ["Navi-Based","Tab-Based","View-Based"], :as => :radio %>
+</div>
+

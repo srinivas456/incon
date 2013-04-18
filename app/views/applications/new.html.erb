@@ -1,4 +1,11 @@
 <h2 class="Title4">New application</h2>
 
-<%= render 'form' %>
 
+<%= simple_form_for @application do |f| %>
+
+<%= render "#{@application.current_step}_step", :f => f %>
+<p> <%= f.submit "Continue" %></p>
+<p> <%= f.submit "Back", :name => "back_button" %></p>
+<% end %>
+
+<%= link_to 'Back', applications_path %>

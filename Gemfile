@@ -8,6 +8,7 @@ gem 'rails', '3.2.12'
 gem 'pg'
 
 
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -43,7 +44,6 @@ gem 'devise'
 
 #Views
 gem "simple_form"
-gem "will_paginate", "~> 3.0.4"
 
+gem 'will_paginate', "3.0.pre4"
 # Search
-gem "pg_search", "~> 0.6.1"

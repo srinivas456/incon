@@ -1,6 +1,15 @@
 <h2 class="Title4">Projects List</h2>
 
-<%#= will_paginate @project_manager %>
+ <div>
+
+    <%= form_tag project_managers_path, :method => 'get' do %>     
+    <p>        
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>    
+   </p>
+   <% end %>
+</div>
+
 <div class="Table">
 <table class="hovertable">
   <tr>
@@ -36,3 +45,6 @@
 </table>
   <br />
 </div>
+<div class="pagination">
+                      <%= will_paginate @project_managers %>
+                    </div>

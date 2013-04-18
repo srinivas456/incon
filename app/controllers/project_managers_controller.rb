@@ -2,8 +2,7 @@ class ProjectManagersController < ApplicationController
   # GET /project_managers
   # GET /project_managers.json
   def index
-    @project_managers = ProjectManager.all
-
+    @project_managers = ProjectManager.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @project_managers }
@@ -28,8 +27,7 @@ class ProjectManagersController < ApplicationController
     @project_manager = ProjectManager.new
     @project_manager.applications.build
 
-    @project_managers = ProjectManager.all
-           
+    @project_managers = ProjectManager.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @project_manager }

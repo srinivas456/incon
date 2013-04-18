@@ -2,8 +2,7 @@ class ApplicationsController < ApplicationController
   # GET /applications
   # GET /applications.json
   def index
-    @applications = Application.all
-
+    @applications = Application.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @applications }
@@ -12,55 +11,63 @@ class ApplicationsController < ApplicationController
 
   # GET /applications/1
   # GET /applications/1.json
-  # def show
-  #   @application = Application.find(params[:id])
-
-  #   respond_to do |format|
-  #     format.html # show.html.erb
-  #     format.json { render json: @application }
-  #   end
-  # end
-
-  # GET /applications/new
-  # GET /applications/new.json
-  def new
-    @application = Application.new
+  def show
+    @application = Application.find(params[:id])
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html # show.html.erb
       format.json { render json: @application }
     end
   end
 
+  # GET /applications/new
+  # GET /applications/new.json
+  def new
+
+   session[:application_params] ||= {}
+  @application = Application.new(session[:application_params])
+  @application.current_step = session[:application_step]
+  end
+
   # GET /applications/1/edit
   def edit
-    @application = Application.find(params[:id])
+    @application = Application.find_by_id(params[:id])
   end
 
   # POST /applications
   # POST /applications.json
   def create
-    @application = Application.new(params[:application])
-
-    respond_to do |format|
-      if @application.save
-        format.html { render action: "settings" }
-        format.json { head :no_content }
-      else
-        format.html { render action: "new" }
-        format.json { head :no_content }
-      end
+  session[:application_params].deep_merge!(params[:application]) if params[:application]
+  @application = Application.new(session[:application_params])
+  @application.current_step = session[:application_step]
+  if @application.valid?
+    if params[:back_button]
+      @application.previous_step
+    elsif @application.last_step?
+      @application.save if @application.all_valid?
+    else
+      @application.next_step
     end
+    session[:application_step] = @application.current_step
+  end
+  if @application.new_record?
+    render "new"
+  else
+    session[:application_step] = session[:application_params] = nil
+    flash[:notice] = "application saved!"
+    redirect_to @application
+  end
   end
 
   # PUT /applications/1
   # PUT /applications/1.json
   def update
     @application = Application.find(params[:id])
+    @application = Application.find_by_id(params[:id])
 
     respond_to do |format|
       if @application.update_attributes(params[:application])
-        format.html { redirect_to @application, notice: 'Application was successfully updated.' }
+        format.html { redirect_to @application, notice: 'Project manager was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -78,20 +85,6 @@ class ApplicationsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to applications_url }
       format.json { head :no_content }
-    end
-  end
-
- def settings
-    #@application = Application.new(params[:application])
-    @application = Application.find(params[:id])
-    respond_to do |format|
-      if @application.save
-        format.html { rendirect_to project_managers_url }
-        format.json { head :no_content }
-      else
-      format.html # new.html.erb
-      format.json { render json: @application }
-      end
     end
   end
 end

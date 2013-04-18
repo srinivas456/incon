@@ -1,29 +1,11 @@
-<p id="notice"><%= notice %></p>
+<%= simple_form_for @application do |f| %>
 
-<p>
-  <b>Title:</b>
-  <%= @application.title %>
-</p>
-
-<p>
-  <b>Version:</b>
-  <%= @application.version %>
-</p>
-
-<p>
-  <b>Type:</b>
-  <%#= @application.type %>
-</p>
-
-<p>
-  <b>Device type:</b>
-  <%= @application.device_type %>
-</p>
-
-<p>
-  <b>Application name:</b>
-  <%= @application.application_name %>
-</p>
+  <div class="actions">
+    <%= f.input :attach_file_name %><br>
+Upload FIle: <%= f.file_field :attach %><br>
+    <%= f.submit %>
+  </div>
+<% end %>
 
 
 <%= link_to 'Edit', edit_application_path(@application) %> |

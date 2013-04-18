@@ -14,14 +14,17 @@
 ActiveRecord::Schema.define(:version => 20130415060928) do
 
   create_table "applications", :force => true do |t|
+    t.string   "attach_file_name"
+    t.string   "attach_content_type"
+    t.string   "attach_file_size"
     t.string   "title"
     t.integer  "version"
     t.string   "type"
     t.string   "device_type"
     t.string   "application_name"
     t.integer  "project_manager_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "project_managers", :force => true do |t|
