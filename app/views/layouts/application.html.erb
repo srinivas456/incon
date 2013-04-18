@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <title>Mobilous AppExe Console</title>
   <script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
   <link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.ico" />
   <link href="/stylesheets/application.css" rel="stylesheet" type="text/css" media="screen" />
   <%= stylesheet_link_tag "application" %>
@@ -87,6 +90,7 @@
   <!-- <%# if toppage? %>     Commented by Srinivas                  -->  
       <div class="main">
         <div id= "mainForm">
+          <div id="maintab"> AppExe Builder</div>
       <%= yield %>
     </div>
   </div>
@@ -178,7 +182,7 @@
   </div><!-- Content3Wrapper -->
 <div id="FooterBWrapper">
           <div id="FooterB">
-                <div id="FooterWrapper" style="padding: 20px 35px 0 35px;">
+                <div id="FooterWrapper" >
                     <div id="FooterLeft">&copy; <%= Time.now.year %> <%=t('footerMenu.copy')%><br /><%=t('footerMenu.copy2')%></div>
                     <div id="FooterRight"><% if @current_user %><% if I18n.locale.to_s == 'en' %><% unless singtel_user?(@current_user) %><a href="http://help.mobilous.com/en/index.html" target="_blank">Help</a><% else %><a href="http://help-singtel.mobilous.com/en/index.html" target="_blank">Help</a><% end %><% else %><% unless singtel_user?(@current_user) %><a href="http://help.mobilous.com/jp/index.html" target="_blank">ヘルプ</a><% else %><a href="http://help-singtel.mobilous.com/jp/index.html" target="_blank">ヘルプ</a><% end %><% end %> / <a <% if direct_user?(@current_user) %>< a href="<%='/'+I18n.locale.to_s+'/'%>support/billing-terms"><%=t('firstReg.firstRegBillingTermsLink')%></a><% end %> / <% end %><a href="<%='/'+I18n.locale.to_s+'/'%>support/tos"><%=t('footerMenu.tos')%></a>  / <a href="<%='/'+I18n.locale.to_s+'/'%>support/privacy"><%=t('footerMenu.privacy')%></a></div>
           <div class="clearfix"></div>
@@ -189,8 +193,7 @@
 </div><!-- Wrapper -->
 <%= yield :scripts %>
 
-</div<!-- Wrapper -->
-<%= yield :scripts %>
+
 
 <script type="text/javascript">
  

@@ -13,116 +13,6 @@
  */
 
 
-/* ------------  Wrapper  ------------- */
-
-#TopWrapper{background: url('/assets/bg_topheader.jpg') repeat-x;}
-#Content1Wrapper{background: #cccccc;}
-#Content2Wrapper{background: #8e8e8e; overflow: hidden;}
-#Content3Wrapper{background: #cccccc; width: auto;}
-#FooterAWrapper{background: #7b7b7b;}
-#FooterBWrapper{background: #2a2a2a;}
-
-#Top, #Content1, #Content2, #Content2Top, #Content3, #FooterA, #FooterB {margin: 0 auto; width: 1142px;}
-#Top {background: url('/assets/bg_headerimg.jpg') repeat-y; width: 1142px; height: 142px;}
-#Content1 {background: url('/assets/bg_center_top.jpg') no-repeat; width: 1142px; height: 79px;}
-#Content2 {background: url('/assets/bg_center_middle.jpg') repeat-y;}
-#Content2Top {background: url('/assets/bg_center_middle.jpg') repeat-y;}
-#Content3 {background: url('/assets/bg_center_bottom.jpg') ; width: 1142px; height: 102px;}
-#FooterA {background: #0d1c32;}
-#FooterB {background: url('/assets/bg_footergr.png') repeat-y; height: 96px;}
-
-#ConsoleTop {margin: 0 auto; background: url('/assets/console/cntrlframe_top.png') no-repeat; width: 1013px; height: 28px;}
-#ConsoleMiddle {margin: 0 auto; background: url('/assets/console/cntrlframe_middle.png') repeat-y; width: 1013px;}
-#ConsoleBottom {margin: 0 auto; background: url('/assets/console/cntrlframe_bottom.png') no-repeat; width: 1013px; height: 28px;}
-
-#gotoTop {margin: 80px 90px 0 0; text-align: right; font-size: xx-small; font-weight: bold; text-align: right; text-indent: 15px;}
-
-.clearfix:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
-.clearfix { min-height:1%; } /*investigate if removable*/
-* html .clearfix { height:1%; }
-.clearfix { display:block; }
-/* ------------  Logo  ------------- */
-
-#Logo {float: left; padding: 10px 60px 0 60px;}
-
-
-#ContentsForm {margin: 0 0 60px 0; padding: 0 0 0 0; width: 860px; height: auto; }
-
-
-.main {
-	background: #8e8e8e;
-	margin-left: 80px;
-	margin-right: 80px;
-	height: 550px;
-	padding-top: 25px;
-}
-
-#mainForm {
-	background: #FFFFFF;
-	margin-right: 120px;
-	margin-left: 120px;
-	padding-top: 15px;
-	border-radius: 5px;
-	height: 500px;
-}
-
-.ContentsForm .spacer {
-	padding:10px 0;
-}
-
-h2.Title4 {
-	margin-top: 0px;
-	margin-left: 80px;
-	font: bold 16px/normal Myriad, sans-serif;
-	color: #3d6799;
-}
-
-.ContentsForm {
-	margin-left: 70px;
-	margin-bottom: 20px;
-}
-
-
-.Table {
-	margin-left: 100px;
-	border-radius: 
-
-}
-table.hovertable {
-  font-family: verdana,arial,sans-serif;
-  font-size:11px;
-  color:#333333;
-  border-width: 1px;
-  border-color: #999999;
-  border-collapse: collapse;
-}
-table.hovertable th {
-  background-color:#CCCCCC;
-  border-width: 1px;
-  padding: 8px;
-  border-style: solid;
-  border-color: #a9c6c9;
-}
-table.hovertable tr {
-  background-color:#d4e3e5;
-}
-table.hovertable td {
-  border-width: 1px;
-  padding: 8px;
-  border-style: solid;
-  border-color: #a9c6c9;
-}
-
-ul.nav {
-
-}
-
-.button-app {
-	margin-left: 320px;
-}
-
-
-/* ################################################################################################################# */
 
 /* CSS Document */
 
@@ -159,28 +49,149 @@ body > #Top {height: auto;}
 .inline {display: inline;}
 
 
+/* ------------  Wrapper  ------------- */
 
-/* for form */  
+#TopWrapper{
+	background: url('/assets/bg_topheader.jpg') repeat-x;
+}
+
+#Content1Wrapper{
+	background: #cccccc;
+}
+
+#Content2Wrapper{
+	background: #8e8e8e; overflow: hidden;
+}
+
+#Content3Wrapper{background: #cccccc; width: auto;}
+#FooterAWrapper{background: #7b7b7b;}
+#FooterBWrapper{background: #2a2a2a;}
+
+#Top, #Content1, #Content2, #Content2Top, #Content3, #FooterA, #FooterB {margin: 0 auto; width: 1142px;}
+#Top {background: url('/assets/bg_headerimg.jpg') repeat-y; width: 1142px; height: 142px;}
+#Content1 {background: url('/assets/bg_center_top.jpg') no-repeat; width: 1142px; height: 79px;}
+#Content2 {background: url('/assets/bg_center_middle.jpg') repeat-y;}
+#Content2Top {background: url('/assets/bg_center_middle.jpg') repeat-y;}
+#Content3 {background: url('/assets/bg_center_bottom.jpg') repeat-x; height: 102px;}
+#FooterA {background: #0d1c32;}
+#FooterB {background: url('/assets/bg_footergr.png') repeat-y; height: 96px;}
+
+#ConsoleTop {margin: 0 auto; background: url('/assets/console/cntrlframe_top.png') no-repeat; width: 1013px; height: 28px;}
+#ConsoleMiddle {margin: 0 auto; background: url('/assets/console/cntrlframe_middle.png') repeat-y; width: 1013px;}
+#ConsoleBottom {margin: 0 auto; background: url('/assets/console/cntrlframe_bottom.png') no-repeat; width: 1013px; height: 28px;}
+
+#gotoTop {margin: 80px 90px 0 0; text-align: right; font-size: xx-small; font-weight: bold; text-align: right; text-indent: 15px;}
+
+.clearfix:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+.clearfix { min-height:1%; } /*investigate if removable*/
+* html .clearfix { height:1%; }
+.clearfix { display:block; }
+/* ------------  Logo  ------------- */
+
+#Logo {float: left; padding: 10px 60px 0 60px;}
 
 
+#ContentsForm {margin: 0 0 60px 0; padding: 0 0 0 0; width: 860px; height: auto; }
 
 
-/*------------- Addition ---------------*/
+.main {
+	background: #8C8C8C;
+	margin-left: 80px;
+	margin-right: 80px;
+	height: 600px;
+	padding-top: 25px;
+}
+
+#mainForm {
+	background: #E6E6E6;
+	margin-right: 120px;
+	margin-left: 80px;
+	
+	border-radius: 5px;
+	height: 550px;
+}
+
+#maintab {
+	background: #9e9e9e;
+	border-radius: 5px;
+	width: auto;
+	height: 35px;
+	font: bold 16px/normal Myriad, sans-serif;
+	text-align: auto;
+}
 
 
+.ContentsForm .spacer {
+	padding:10px 0;
+}
 
-/* ------------  Contents 3  ------------- */
+h2.Title4 {
+	padding-top: 40px;
+	font: bold 16px/normal Myriad, sans-serif;
+	color: #OAOAOA;
+}
 
+.ContentsForm {
+	margin-left: 40px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	margin-right: 10px;
+}
 
+#contentform {
+	width: 450px;
+}
 
-/* ------------  Console Top  ------------- */
+.Table {
+	margin-left: 0px;
+	padding-top: 5px;
+	
 
+}
+table.hovertable {
+  font-family: verdana,arial,sans-serif;
+  font-size:10px;
+  color:#333333;
+  border-width: 1px;
+  border-color: #999999;
+  border-collapse: collapse;
+  width: 650px;
+}
+table.hovertable th {
+  background-color:#CCCCCC;
+  border-width: 1px;
+  padding: 5px;
+  border-style: solid;
+  border-color: #a9c6c9;
+}
+table.hovertable tr {
+  background-color:#d4e3e5;
+}
+table.hovertable td {
+  border-width: 1px;
+  padding: 5px;
+  border-style: solid;
+  border-color: #a9c6c9;
+}
 
-/* ------------------  Console List  ----------------- */
+ul.nav {
 
+}
 
-/* ------------  Button: Managers Left ------------- */
+.button-app {
+	margin-left: 100px;
 
+}
 
-/* ------------  Button: Read More ------------- */
+.radio {
+	margin-right: 40px;
+}
+
+.sidebar {
+	margin-left: 500px;
+	margin-top: -280px;
+	width: 250px;
+}
+/* ################################################################################################################# */
+
 

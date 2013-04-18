@@ -12,14 +12,14 @@ class ApplicationsController < ApplicationController
 
   # GET /applications/1
   # GET /applications/1.json
-  def show
-    @application = Application.find(params[:id])
+  # def show
+  #   @application = Application.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @application }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html # show.html.erb
+  #     format.json { render json: @application }
+  #   end
+  # end
 
   # GET /applications/new
   # GET /applications/new.json
@@ -45,10 +45,10 @@ class ApplicationsController < ApplicationController
     respond_to do |format|
       if @application.save
         format.html { render action: "settings" }
-        format.json { render json: @application, status: :created, location: @application }
+        format.json { head :no_content }
       else
         format.html { render action: "new" }
-        format.json { render json: @application.errors, status: :unprocessable_entity }
+        format.json { head :no_content }
       end
     end
   end
@@ -86,11 +86,11 @@ class ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     respond_to do |format|
       if @application.save
-        format.html { rendirect_to @application, notice: 'Application was successfully created.' }
-        format.json { render json: @application, status: :created, location: @application }
+        format.html { rendirect_to project_managers_url }
+        format.json { head :no_content }
       else
-        format.html { render action: "new" }
-        format.json { render json: @application.errors, status: :unprocessable_entity }
+      format.html # new.html.erb
+      format.json { render json: @application }
       end
     end
   end
