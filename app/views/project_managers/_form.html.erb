@@ -1,15 +1,14 @@
-
-
-   
+	<div id="side-contentform">   
+		 <h2 class="Title4">Create an App from Scratch</h2>
    	<%= simple_form_for @project_manager do |f| %>
  		<%= f.input :project_name, :hint=>"Project Name cannot be changed, Max of 10 Characters" %>
 	 <%= f.fields_for :applications do |builder| %>
-	 	<%#= builder.input :application_name, :hint=>"Application Name can be changed, Max of 15 Characters" %>
+	 	<%= builder.input :application_name, :hint=>"Application Name can be changed, Max of 15 Characters" %>
 	 <% end %>
 	 <div class = "button-app">
  		<%= f.submit "Create App" %>
  	</div>
 	<% end %>
-
+</div>
  
 

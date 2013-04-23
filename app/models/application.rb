@@ -1,7 +1,8 @@
 class Application < ActiveRecord::Base
   attr_writer :current_step
  
-  attr_accessible :application_name, :device_type, :title, :type, :version, :attach_file_name, :attach
+  attr_accessible :application_name, :device_type, :title, :application_type , :version, :attach_file_name, :attach, :style, :orientation
+  #validates :application_name, :presence => true
 
   belongs_to :project_manager
   
@@ -12,7 +13,7 @@ def current_step
 end
 
 def steps
-  %w[naming setting device]
+  %w[naming setting device page]
 end
 
 def next_step

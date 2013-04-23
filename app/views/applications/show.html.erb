@@ -1,12 +1,46 @@
 <%= simple_form_for @application do |f| %>
 
-  <div class="actions">
-    <%= f.input :attach_file_name %><br>
-Upload FIle: <%= f.file_field :attach %><br>
-    <%= f.submit %>
-  </div>
+<h1> App Manager </h1>
+<p> The App Manager allows you to interact with certain components that may be required while building a mobile application.
+	<div class = "content-text">
+	<div id="text">
+		<h4> Page Manager </h4>
+		<p> Where you can Add,Remove and Edit Pages in the App</p>
+
+	</div></br>
+	<div id="text">
+		<h4> Resource Manager </h4>
+		<p> Where you can Add,Remove and Edit images,videos and sounds of the App</p>
+	</div></br>
+	<div id="text">
+		<h4> Local Database </h4>
+		<p> Where you can Add,Remove and Edit local database of the App</p>
+	</div></br>
+	<div id="text">
+		<h4> Remote Database </h4>
+		<p> Where you can Add,Remove and Edit remote database of the App</p>
+	</div></br>
+	<div class="content-text2">
+	<div id="text">
+		<h4> Service </h4>
+		<p> Where you can Add,Remove and Edit services of your App</p>
+	</div></br>
+	<div id="text">
+		<h4> Location </h4>
+		<p> Where you can Add,Remove and Edit location based-services of the App</p>
+	</div></br>
+	<div id="text">
+		<h4> Localisation </h4>
+		<p> Where you can Add,Remove and Edit localization properties of the App</p>
+	</div></br>
+	<div id="text">
+		<h4> Application Property </h4>
+		<p> Edit Globalization Setting for your App</p>
+	</div>
+</div>
+</div>
 <% end %>
 
 
-<%= link_to 'Edit', edit_application_path(@application) %> |
-<%= link_to 'Back', applications_path %>
+<%#= link_to 'Edit', edit_application_path(@application) %> 
+<%#= link_to 'Back', applications_path %>

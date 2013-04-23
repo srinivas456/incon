@@ -1,8 +1,21 @@
 
 <div class="ContentsForm">
   <p>Select the device on which you want to run your application</p>
-  <%#= f.input :application_name %>
-  <%#= f.input :version %>
-   <%= f.input :type, :collection => ["Navi-Based","Tab-Based","View-Based"], :as => :radio %>
-</div>
+  <%= f.input :application_name %>
+  <%= f.input :version %></br>
 
+  	  <img src="/assets/phone.jpg" width="140" height="200">
+          <img src="/assets/phone.jpg" width="140" height="200">
+          <img src="/assets/phone.jpg" width="140" height="200"></br>
+   <%= f.input :application_type, :collection => ["Navi-Based","Tab-Based","View-Based"], :as => :radio %>
+
+
+		<div class= "sidebar">
+            Supported orientation</br>
+
+          <img src="/assets/phone.jpg" width="50" height="80">
+          <img src="/assets/phone.jpg" width="50" height="80">
+          <img src="/assets/phone.jpg" width="50" height="80">
+          <img src="/assets/phone.jpg" width="50" height="80"></br>
+        </div>
+        </div>

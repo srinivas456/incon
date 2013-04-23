@@ -34,46 +34,10 @@
             <div id="Navigation">
               <div id="menu" class="xtc-wrapper">
                 <ul class="menu dualfish">
-        <% if @current_user %>
-        <% if user_dashboard? %><li id="current" class="active"><% else %><li><% end %>
-                <a href="<%='/'+I18n.locale.to_s+'/dashboard'%>"><span><%=t('topmenu.dashboard')%></span></a></li>
-                <% if build_app? %><li id="current" class="active"><% else %><li><% end %>
-                <a href="<%='/'+I18n.locale.to_s+'/build-app'%>"><span><%=t('topmenu.buildApp')%></span></a></li>
-
-                <% if test_app? %><li id="current" class="active"><% else %><li><% end %>
-                <a href="<%='/'+I18n.locale.to_s+'/test-apps'%>"><span><%=t('topmenu.testApp')%></span></a></li>
-
-                <% if release_app? %><li id="current" class="active"><% else %><li><% end %>
-                <a href="<%='/'+I18n.locale.to_s+'/release-apps'%>"><span><%=t('releaseApp.releaseApps')%></span></a></li>
-
-                <% if submit_app? %><li id="current" class="active"><% else %><li><% end %>
-                <a href="<%='/'+I18n.locale.to_s+'/submit-apps'%>"><span><%=t('topmenu.submitApps')%></span></a></li>
-
-                <% unless singtel_user?(@current_user) %>
-                <% if helpdesk? %><li id="current" class="active"><% else %><li><% end %>
-                <a href="<%='/'+I18n.locale.to_s + '/users/' + @current_user.uuid + '/helpdesk'%>"><span><%=t('topmenu.feedback')%></span></a></li>
-                <% end %>
-
-                <% if I18n.locale.to_s == 'en' %>
-                  <% unless singtel_user?(@current_user) %>
-                    <li><a href="http://help.mobilous.com/en/index.html" target="_blank">Help</a></li>
-                  <% else %>
-                    <li><a href="http://help-singtel.mobilous.com/en/index.html" target="_blank">Help</a></li>
-                  <% end %>
-                <% else %>
-                  <% unless singtel_user?(@current_user) %>
-                    <li><a href="http://help.mobilous.com/jp/index.html" target="_blank">ヘルプ</a></li>
-                  <% else %>
-                    <li><a href="http://help-singtel.mobilous.com/jp/index.html" target="_blank">ヘルプ</a></li>
-                  <% end %>
-                <% end %>
-                
-                <% if @current_user.roles.member?("mobiadmin") %>
-                <% if admin_manager? %><li id="current" class="active"><% else %><li><% end %>
-                <a href="<%='/'+I18n.locale.to_s + '/admin/dashboard'%>"><span><%=t('topmenu.adminManager')%></span></a></li>
-                <% end %>
-
-                <% end %>
+        <%# if @current_user %>
+        <%# if user_dashboard? %>
+                 <li><%=link_to 'Dashboard' %> | <%= link_to 'Build App'%> | <%= link_to 'Test App' %> | <%= link_to 'Release App' %> |<%= link_to 'Submit App' %> | <%= link_to 'Support' %> | <%= link_to 'Help' %></li>
+ 
                 </ul>
               </div><!-- menu xtc-wrapper -->
             </div><!-- Navigation -->

@@ -44,6 +44,9 @@ gem 'devise'
 
 #Views
 gem "simple_form"
-
 gem 'will_paginate', "3.0.pre4"
-# Search
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
+
+gem 'jquery-minicolors-rails'
+gem 'client_side_validations'

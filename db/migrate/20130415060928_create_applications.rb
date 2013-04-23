@@ -6,10 +6,14 @@ class CreateApplications < ActiveRecord::Migration
       t.string :attach_file_size
       t.string :title
       t.integer :version
-      t.string :type 
+      t.string :application_type 
       t.string :device_type 
       t.string :application_name
+      t.text :tab_color
+      t.text :navigation_color
       t.integer :project_manager_id
+      t.string :orientation
+      t.string :style
       t.timestamps
     end
   end

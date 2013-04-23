@@ -98,7 +98,7 @@ body > #Top {height: auto;}
 	background: #8C8C8C;
 	margin-left: 80px;
 	margin-right: 80px;
-	height: 600px;
+	height: 610px;
 	padding-top: 25px;
 }
 
@@ -108,7 +108,7 @@ body > #Top {height: auto;}
 	margin-left: 80px;
 	
 	border-radius: 5px;
-	height: 550px;
+	height: 570px;
 }
 
 #maintab {
@@ -129,6 +129,13 @@ h2.Title4 {
 	padding-top: 40px;
 	font: bold 16px/normal Myriad, sans-serif;
 	color: #OAOAOA;
+	margin-left: 0px;
+}
+
+h2.Title3 {
+	font: bold 16px/normal Myriad, sans-serif;
+	color: #OAOAOA;
+	margin-left: 0px;
 }
 
 .ContentsForm {
@@ -138,12 +145,24 @@ h2.Title4 {
 	margin-right: 10px;
 }
 
+.content-side{
+	margin-left: 10px;
+	width: 300px;
+	height: 230px;
+}
+
+#side-contentform {
+	width: 260px;
+	margin-left: 340px;
+	margin-top: -170px;
+}
+
 #contentform {
 	width: 450px;
 }
 
 .Table {
-	margin-left: 0px;
+	margin-left: 25px;
 	padding-top: 5px;
 	
 
@@ -192,6 +211,48 @@ ul.nav {
 	margin-top: -280px;
 	width: 250px;
 }
+
+.pagination {
+
+	margin-left: 250px;
+}
 /* ################################################################################################################# */
 
 
+.xtc-wrapperwide {
+    width:1142px;
+	margin:0 auto;
+}
+.xtc-wrapper {
+    width:1078px;
+	margin:0 auto;
+	padding-top: 100px;
+}
+.xtc-spacer {
+    margin-bottom:15px;
+}
+.xtc-spacerlarge {
+	bottom: 80px!important;
+}
+.xtc-spacersmall {
+	bottom: 47px!important;
+}
+
+.content-text {
+	height: 500px;
+	margin-left: 55px;
+}
+
+.content-text2 {
+	margin-left: 350px;
+	margin-top: -400px;
+}
+
+#text {
+	font-size: 10px;
+	border: 1px solid;
+	 border-color: #8e8e8e;
+	border-radius: 2px;
+	width: 300px;
+	height: 80px;
+}

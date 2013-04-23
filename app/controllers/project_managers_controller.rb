@@ -79,7 +79,7 @@ class ProjectManagersController < ApplicationController
     @project_manager.destroy
 
     respond_to do |format|
-      format.html { redirect_to project_managers_url }
+      format.html { redirect_to action: "new" }
       format.json { head :no_content }
     end
   end

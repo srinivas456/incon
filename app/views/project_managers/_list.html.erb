@@ -1,50 +1,52 @@
-<h2 class="Title4">Projects List</h2>
+<h2 class="Title3">Your Apps</h2>
 
  <div>
 
     <%= form_tag project_managers_path, :method => 'get' do %>     
     <p>        
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>    
+    <%#= text_field_tag :search, params[:search] %>
+    <%#= submit_tag "Search", :name => nil %>    
    </p>
    <% end %>
 </div>
 
 <div class="Table">
 <table class="hovertable">
-  <tr>
-    <th>Id</th>
-    <th>Project Name</th>
-    <th>App Name</th>
-    <th>Created On</th>
-    <th>Controls</th>
-
-  </tr>
+ 
 
 <% @project_managers.each do |project_manager| %>
 
-  <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#ffffff';">
-    <td><%= project_manager.id %></td>
-    <td><%= project_manager.project_name %></td>
-    <td>
+  <!-- <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#ffffff';"> -->
+    <div class="span2">
+    <%#= link_to image_tag(project.avatar.blank? ? "avatar_medium.png" : project.avatar.url(:medium)), project_manager_path(project),  :rel => "tooltip" -%> 
+       </div>
+    
     <% for application in @project_manager.applications %>
     <% project_manager.applications.each do |t| %>
-     <%=  t.application_name %>
+     &nbsp;&nbsp;&nbsp;<%=  t.application_name %>
      <% end %>
-    <% end %></td>
-    <td><%= project_manager.created_at.strftime('%d/%m/%Y') %></td>
-    <td><%#= link_to 'Edit', edit_project_manager_path(project_manager) %>
-      <%= link_to 'Edit', new_application_path(application) %>
-    <%= link_to 'Destroy', project_manager, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <%= link_to 'Publish' %>
-    <%= link_to 'Clone' %>
-    <%= link_to 'Test' %>
-  </td>
-  </tr>
+    <% end %></br>
+     &nbsp;&nbsp;&nbsp;<%= project_manager.id %>
+     &nbsp;&nbsp;&nbsp;<%= project_manager.project_name %></br>
+    App Created On:: <%= project_manager.created_at.strftime('%d/%m/%Y') %></br>
+      <i class="icon-chevron-down blank-vote enlarge"></i>
+     <%= link_to raw("<i class='icon-trash'></i> Delete"), project_manager, :data => { :confirm => "Are you sure you want to delete ?" }, method: :delete %>
+     <%= link_to raw("<i class='icon-edit'></i> Edit"), new_application_path(application.id) %>
+    <%#= link_to image_tag('/assets/.jpg') + "Edit", new_application_path(@application) %> 
+    <%#= link_to image_tag('/assets/delete.jpeg') + "Delete", project_manager, method: :delete, data: { confirm: 'Are you sure?' } %> 
+    <%#= link_to image_tag('/assets/.jpg') + "Publish", new_application_path(@application) %> 
+   <%#= link_to 'Edit', edit_project_manager_path(project_manager) %>
+    <%#= link_to 'Edit', new_application_path(application) %>
+    <%#= link_to 'Destroy', project_manager, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%#= link_to 'Publish' %>
+    <%#= link_to 'Clone' %>
+    <%#= link_to 'Test' %>
+ 
+  <!-- </tr> -->
 <% end %>
 </table>
   <br />
 </div>
-<div class="pagination">
-                      <%= will_paginate @project_managers %>
-                    </div>
+    <div class="pagination">
+       <%= will_paginate @project_managers %>
+    </div>

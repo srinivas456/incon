@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-minicolors
+//= require jquery-minicolors-simple_form
+//= require twitter/bootstrap
 //= require_tree .
