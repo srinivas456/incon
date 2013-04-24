@@ -1,1 +1,5 @@
-<h1>Applications</h1>
+<%= simple_form_for @application, :url => {:action => :update} do |f| %>
+<%= render "#{@application.current_step}_step", :f => f %></br>
+<p> <%= f.submit "Continue" %></p>
+<p> <%= f.submit "Back", :name => "back_button" %></p>
+<%end%>

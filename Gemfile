@@ -20,6 +20,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
   gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
+  gem "less-rails"
 end
 
 gem 'jquery-rails'
@@ -47,6 +48,6 @@ gem "simple_form"
 gem 'will_paginate', "3.0.pre4"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
-
+gem "json", "~> 1.7.7"
 gem 'jquery-minicolors-rails'
 gem 'client_side_validations'

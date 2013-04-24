@@ -1,11 +1,13 @@
 class Application < ActiveRecord::Base
-  attr_writer :current_step
+  
  
   attr_accessible :application_name, :device_type, :title, :application_type , :version, :attach_file_name, :attach, :style, :orientation
+  attr_writer :current_step
   #validates :application_name, :presence => true
 
   belongs_to :project_manager
   
+
   has_attached_file :attach
 
 def current_step

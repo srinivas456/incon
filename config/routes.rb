@@ -1,15 +1,18 @@
 Incon::Application.routes.draw do
-  resources :applications
-
-
-  resources :project_managers
-
-
-  devise_for :users
-
   
 
 
+  resources :project_managers 
+  resources :applications
+  devise_for :users
+
+  # resources :project_managers do 
+  #   resources :applications
+  # end  
+  
+
+  #get '/project_managers/:project_manager_id/applications/:id/edit(.:format)' => 'applications#edit', :as => 'edit_project_manager_application'
+  
   match '/applications/:id/' => 'applications#create', :as => '_application'
   get '/applications/:id/edit' => 'applications#edit', :as => 'edit_application'
 

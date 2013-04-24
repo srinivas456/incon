@@ -63,6 +63,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    commonjs (0.2.6)
     devise (2.2.3)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -81,6 +82,11 @@ GEM
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     json (1.7.7)
+    less (2.3.2)
+      commonjs (~> 0.2.6)
+    less-rails (2.3.3)
+      actionpack (>= 3.1)
+      less (~> 2.3.1)
     libv8 (3.11.8.17)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -155,6 +161,8 @@ DEPENDENCIES
   devise
   jquery-minicolors-rails
   jquery-rails
+  json (~> 1.7.7)
+  less-rails
   paperclip!
   pg
   rails (= 3.2.12)

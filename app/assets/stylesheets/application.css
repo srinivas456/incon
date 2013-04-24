@@ -151,10 +151,13 @@ h2.Title3 {
 	height: 230px;
 }
 
+.content-side p{
+	padding-top: 40px;
+}
 #side-contentform {
 	width: 260px;
 	margin-left: 340px;
-	margin-top: -170px;
+	margin-top: -220px;
 }
 
 #contentform {
