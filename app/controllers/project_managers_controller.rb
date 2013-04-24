@@ -36,7 +36,9 @@ class ProjectManagersController < ApplicationController
 
   # GET /project_managers/1/edit
   def edit
-    @application = Application.find_by_id(params[:id])
+    @application = Application.find_by_id(session[:application_params])
+    @application.current_step = session[:application_step]
+
   end
 
   # POST /project_managers

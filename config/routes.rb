@@ -2,12 +2,14 @@ Incon::Application.routes.draw do
   resources :applications
 
 
-  resources :project_managers
+  resources :project_managers 
+    #resources :applications
+  
 
 
   devise_for :users
 
-
+  #get '/:project_manager_id/applications/:id/edit' => 'applications#edit', :as => 'edit_project_manager_application'
   match '/applications/:id/' => 'applications#create', :as => '_application'
   match '/applications/:id/edit' => 'applications#edit', :as => 'edit_application'
 

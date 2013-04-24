@@ -34,7 +34,7 @@
     <% end %></td>
     <td><%= project_manager.created_at.strftime('%d/%m/%Y') %></td>
     <td><%#= link_to 'Edit', edit_project_manager_path(project_manager) %>
-      <%= link_to 'Edit', new_application_path(application) %>
+      <%= link_to 'Edit', edit_application_path(project_manager.id) %>
     <%= link_to 'Destroy', project_manager, method: :delete, data: { confirm: 'Are you sure?' } %>
     <%= link_to 'Publish' %>
     <%= link_to 'Clone' %>

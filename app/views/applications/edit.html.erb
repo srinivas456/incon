@@ -1,6 +1,11 @@
 <h2 class="Title4">Application Property:: Device Settings</h2>
-<p>Choose the device type on which you want to run your application</p>
-<%= render 'form' %>
 
-<%= link_to 'Help' %> |
-<%= link_to 'Back', applications_path %>
+<%= simple_form_for @application do |f| %>
+
+<%= render "#{@application.current_step}_step", :f => f %>
+<p> <%= f.submit "Continue" %></p>
+<p> <%= f.submit "Back", :name => "back_button" unless @application.first_step? %></p>
+<% end %>
+
+<%= link_to 'Back', applications_path  %>
+
