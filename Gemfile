@@ -51,3 +51,8 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem "json", "~> 1.7.7"
 gem 'jquery-minicolors-rails'
 gem 'client_side_validations'
+
+
+#Mongodb
+gem "mongoid", "~> 2.4"
+gem "bson_ext", "~> 1.5"

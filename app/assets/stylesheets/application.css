@@ -205,13 +205,12 @@ ul.nav {
 
 }
 
-.radio {
-	margin-right: 40px;
-}
+
 
 .sidebar {
+	height: 335px;
 	margin-left: 500px;
-	margin-top: -280px;
+	margin-top: -425px;
 	width: 250px;
 }
 
@@ -254,8 +253,71 @@ ul.nav {
 #text {
 	font-size: 10px;
 	border: 1px solid;
-	 border-color: #8e8e8e;
-	border-radius: 2px;
+	border-color: #8e8e8e;
+	border-radius: 5px;
 	width: 300px;
 	height: 80px;
 }
+
+#icon {
+padding-top: 12px;
+margin-left: 10px;
+border-radius: 5px;
+width: 50px;
+height: 60px;
+}
+
+#text-content {
+	margin-left: 70px;
+	margin-top: -80px;
+
+}
+
+#text-content p {
+	margin-top: -10px;
+	font-size: 12px;
+}
+
+.page-content {
+	margin-left: 10px;
+}
+
+.page-content p{
+	margin-left: 15px;
+	font-size: 15px;
+	margin-bottom: 25px;
+}
+
+.radio {
+  margin-left: 40px;
+  display: inline-block;
+  width: auto;
+  padding-right: 30px;
+}
+
+.actionform{
+	margin-left: 115px;
+	margin-top: 40px;
+
+}
+
+#actions {
+	display: inline-block;
+	margin-left: 550px;
+	margin-top: 20px;
+}
+
+#radio-btn {
+	margin-left: -12px;
+
+}
+
+
+#page-form p{
+	margin-left: 150px;
+}
+
+#icon-form {
+	margin-left: 120px;
+}
+input radio_buttons optional application_device_type

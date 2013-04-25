@@ -1,5 +1,10 @@
 <%= simple_form_for @application, :url => {:action => :update} do |f| %>
+<%#= f.hidden_field :project_manager_id, :value => "id" %>
+<%#= f.hidden_field :project_manager_id, :value => @project.project_manager_id %>
 <%= render "#{@application.current_step}_step", :f => f %></br>
-<p> <%= f.submit "Continue" %></p>
-<p> <%= f.submit "Back", :name => "back_button" %></p>
+
+
+ <%= f.submit "Next" %>
+ <%= f.submit "Back", :name => "back_button" %>
+</div>
 <%end%>

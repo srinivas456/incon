@@ -5,7 +5,7 @@ class Application < ActiveRecord::Base
   attr_writer :current_step
   #validates :application_name, :presence => true
 
-  belongs_to :project_manager
+  belongs_to :project_manager, :class_name => "ProjectManager", :foreign_key => "project_manager_id"
   
 
   has_attached_file :attach

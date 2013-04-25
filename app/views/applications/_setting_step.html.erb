@@ -1,21 +1,27 @@
 
 <div class="ContentsForm">
+  <h4>App Property :: Device Selection</h4>
+    <p> Choose the device type/s on which you want to run your application </p>
+  <div class ="">
   <p>Select the device on which you want to run your application</p>
   <%= f.input :application_name %>
-  <%= f.input :version %></br>
+  <%= f.input :version %>
+  <h4> App Navigation Structure </h4>
+  	  <img src="/assets/phone.jpg" width="160" height="200">
+          <img src="/assets/phone.jpg" width="160" height="200">
+          <img src="/assets/phone.jpg" width="160" height="200"></br>
 
-  	  <img src="/assets/phone.jpg" width="140" height="200">
-          <img src="/assets/phone.jpg" width="140" height="200">
-          <img src="/assets/phone.jpg" width="140" height="200"></br>
-   <%= f.input :application_type, :collection => ["Navi-Based","Tab-Based","View-Based"], :as => :radio %>
 
-
+    <div id="radio-btn">
+   <%= f.input :application_type, :label => '', :collection => ["Navi-Based","Tab-Based","View-Based"], :as => :radio, :set_default => "Navi-Based" %>
+ </div>
+</div>
 		<div class= "sidebar">
-            Supported orientation</br>
+            Supported orientation</br></br>
 
-          <img src="/assets/phone.jpg" width="50" height="80">
-          <img src="/assets/phone.jpg" width="50" height="80">
-          <img src="/assets/phone.jpg" width="50" height="80">
+          <img src="/assets/phone.jpg" width="50" height="80"></br></br>
+          <img src="/assets/phone.jpg" width="50" height="80"></br></br>
+          <img src="/assets/phone.jpg" width="50" height="80"></br></br>
           <img src="/assets/phone.jpg" width="50" height="80"></br>
         </div>
         </div>

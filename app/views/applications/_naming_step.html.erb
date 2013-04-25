@@ -1,8 +1,15 @@
 <div class="ContentsForm">
+	
+	<h4>App Property :: Device Selection</h4>
+		<p> Choose the device type/s on which you want to run your application </p> </br>
+
+		<div class="actionform">
 	<p>Select the device on which you want to run your application</p>
 	  <img src="/assets/phone.jpg" width="140" height="200">
-          <img src="/assets/phone.jpg" width="140" height="200">
-          <img src="/assets/phone.jpg" width="140" height="200"></br>
-   <%= f.input :device_type, :collection => ["Phone", "Tablet", "Both"], :as => :radio, :set_default => :Phone %>
-   
+      <img src="/assets/phone.jpg" width="140" height="200">
+      <img src="/assets/phone.jpg" width="140" height="200"></br>
+   <%= f.input :device_type, :label => '', :collection => ["Phone", "Tablet", "Both"], :as => :radio, :set_default => :Phone %>
+   </div>
 </div>
+<%#= f.radio_button :device_type, %> 
+    <%#= f.radio_button :device_type, false %> 
