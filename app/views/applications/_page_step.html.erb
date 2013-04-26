@@ -1,24 +1,26 @@
 <div class="ContentsForm">
-<h4>Page Style:: Tab-Based </h4></br>
+<h4>Page Style:: Tab-Based </h4>
 Using these properties one can define how the pages wood look and feel in the mobile
 
 <h4>Page Control :</h4>
-	
-<p>Orientation </p>
-</br>
+	<%= f.input :orientation, :label => '', :collection => ["Portrait", "Upside Down", "Landscape left", "Landscape Right"], :set_default => "Portrait"%>
 	<%#= f.collection_check_boxes :options, [[true, 'Yes'] ,[false, 'No']], :Portrait, :last %>
 	<h4>Tab Property</h4>
 	Tint :
-	<%#= f.input :tab_color, as: :minicolors, :class => "col" %>
-
-	<h3>Navigation Property</h3>
-	Tint :
+	<%= f.input :tab_color, :label => '', as: :minicolors %>
+	<div id= "sidebar-property">
+	<h4>Navigation Property</h4>
+	Tint : <%= f.input :nav_color, :label => '', :type => "text", as: :minicolors, :class => "column" %>
+	<div id ="radio-btn">
    <%= f.input :style, :collection => ["Default", "Black Opaque", "Black Translucent", "Custom Color"], :as => :radio %>
+	</div>
+	</div>
 </div>
 
 <script type="text/javascript">
 
  $(document).ready(function () {
- $('input.col').miniColors();
+  $('input[type=text]').minicolors();
 });
 </script>
+

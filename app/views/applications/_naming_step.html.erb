@@ -8,6 +8,7 @@
 	  <img src="/assets/phone.jpg" width="140" height="200">
       <img src="/assets/phone.jpg" width="140" height="200">
       <img src="/assets/phone.jpg" width="140" height="200"></br>
+   <%= f.hidden_field :project_manager_id, :value => @application.project_manager_id %>
    <%= f.input :device_type, :label => '', :collection => ["Phone", "Tablet", "Both"], :as => :radio, :set_default => :Phone %>
    </div>
 </div>

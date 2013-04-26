@@ -18,10 +18,13 @@
 </div>
 		<div class= "sidebar">
             Supported orientation</br></br>
-
-          <img src="/assets/phone.jpg" width="50" height="80"></br></br>
-          <img src="/assets/phone.jpg" width="50" height="80"></br></br>
-          <img src="/assets/phone.jpg" width="50" height="80"></br></br>
-          <img src="/assets/phone.jpg" width="50" height="80"></br>
+            
+          <img src="/assets/phone.jpg" width="40" height="60"></br></br>
+          <img src="/assets/phone.jpg" width="40" height="60"></br></br>
+          <img src="/assets/phone.jpg" width="40" height="60"></br></br>
+          <img src="/assets/phone.jpg" width="40" height="60"></br>
+          <div id="radio-vertical">
+            <%= f.input :orientation, :label => '', :collection => ["Portrait", "Upside Down", "Landscape left", "Landscape Right"], :as => :radio, :set_default => "Portrait" %>
+          </div>
         </div>
         </div>

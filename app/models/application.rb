@@ -1,7 +1,7 @@
 class Application < ActiveRecord::Base
   
  
-  attr_accessible :application_name, :device_type, :title, :application_type , :version, :attach_file_name, :attach, :style, :orientation
+  attr_accessible :application_name, :project_manager_id, :device_type, :tab_color, :nav_color, :application_type , :version, :attach_file_name, :attach, :style, :orientation
   attr_writer :current_step
   #validates :application_name, :presence => true
 

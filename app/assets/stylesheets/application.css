@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require_tree .
+ *= require jquery-minicolors
  */
 
 
@@ -293,6 +294,7 @@ height: 60px;
   display: inline-block;
   width: auto;
   padding-right: 30px;
+  padding-bottom: 35px;
 }
 
 .actionform{
@@ -319,5 +321,22 @@ height: 60px;
 
 #icon-form {
 	margin-left: 120px;
+}
+
+#radio-vertical{
+	margin-left: 20px;
+	margin-top: -225px;
+
+}
+
+#radio-btn {
+	display: block;
+}
+
+#sidebar-property{
+
+	margin-left: 300px;
+	margin-top: -125px;
+
 }
 input radio_buttons optional application_device_type

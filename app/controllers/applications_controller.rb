@@ -26,6 +26,7 @@ class ApplicationsController < ApplicationController
 
    session[:application_params] ||= {}
   @application = Application.new(session[:application_params])
+   @application.project_manager_id = params[:project_manager_id]
   @application.current_step = session[:application_step]
   end
 
@@ -63,7 +64,7 @@ class ApplicationsController < ApplicationController
   # PUT /applications/1.json
   def update
     @application = Application.find(params[:id])
-    @application = Application.find_by_id(params[:id])
+    #@application = Application.find_by_project_manager_id(params[:project_manager_id])
 
     respond_to do |format|
       if @application.update_attributes(params[:application])

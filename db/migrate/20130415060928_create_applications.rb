@@ -4,7 +4,7 @@ class CreateApplications < ActiveRecord::Migration
       t.string :attach_file_name      
       t.string :attach_content_type
       t.string :attach_file_size
-      t.string :title
+      t.string :nav_color
       t.integer :version
       t.string :application_type 
       t.string :device_type 
