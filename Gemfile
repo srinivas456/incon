@@ -21,6 +21,7 @@ group :assets do
   gem 'therubyracer'
   gem 'uglifier', '>= 1.0.3'
   gem "less-rails"
+   gem 'bootstrap-colorpicker-rails', :require => 'bootstrap-colorpicker-rails', :git => 'git://github.com/alessani/bootstrap-colorpicker-rails.git'
 end
 
 gem 'jquery-rails'
@@ -54,5 +55,5 @@ gem 'client_side_validations'
 
 
 #Mongodb
-gem "mongoid", "~> 2.4"
-gem "bson_ext", "~> 1.5"
+gem "mongoid", "~> 3.1.3"
+gem "bson_ext", "~> 1.8.5"

@@ -1,14 +1,14 @@
 <h2 class="Title4">Application Property:: Device Settings</h2>
 <p>Choose the device type on which you want to run your application</p>
-<%#= render 'form' %>
-
-<%#= link_to 'Help' %> |
-<%#= link_to 'Back', applications_path %>
 <%= simple_form_for @application do |f| %>
 
-<%= f.hidden_field :project_manager_id, :value => @application.project_manager_id %>
-   <%= f.input :device_type, :label => '', :collection => ["Phone", "Tablet", "Both"], :as => :radio, :set_default => :Phone %>
+<%= render "#{@application.current_step}_step", :f => f %></br>
+<div id = "actions">
 
- <%= f.submit "Next" %>
+<%= f.submit "Back", :name => "back_button" %>
+<%= f.submit "Next" %>
+</div>
  <%#= f.submit "Back", :name => "back_button" %>
 <%end%>
+
+     

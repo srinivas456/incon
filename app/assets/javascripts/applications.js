@@ -5,7 +5,7 @@
 // the compiled file.
 //
 //= require jquery
-//= require jquery-minicolors
 //= require jquery_ujs
+//= require bootstrap-colorpicker
 //= require twitter/bootstrap
 //= require_tree .

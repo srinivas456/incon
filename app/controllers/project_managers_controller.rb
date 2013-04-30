@@ -2,7 +2,8 @@ class ProjectManagersController < ApplicationController
   # GET /project_managers
   # GET /project_managers.json
   def index
-    @project_managers = ProjectManager.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+    #@project_managers = ProjectManager.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+    @project_managers = ProjectManager.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @project_managers }
@@ -27,7 +28,7 @@ class ProjectManagersController < ApplicationController
     @project_manager = ProjectManager.new
     @project_manager.applications.build
 
-    @project_managers = ProjectManager.search(params[:search]).paginate(:per_page => 2, :page => params[:page])
+    #@project_managers = ProjectManager.search(params[:search]).paginate(:per_page => 2, :page => params[:page])
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @project_manager }
@@ -36,7 +37,7 @@ class ProjectManagersController < ApplicationController
 
   # GET /project_managers/1/edit
   def edit
-    @application = Application.find_by_id(params[:id])
+    @application = Application.find(params[:id])
   end
 
   # POST /project_managers
@@ -50,7 +51,7 @@ class ProjectManagersController < ApplicationController
         format.json { render json: @project_manager, status: :created, location: @project_manager }
       else
         format.html { render action: "new", notice: 'Project manager was successfully created.' }
-        format.json { render json: @project_manager.errors, status: :unprocessable_entity  }
+        format.json { render json: @project_manager, status: :unprocessable_entity  }
       end
     end
   end

@@ -13,8 +13,8 @@ Incon::Application.routes.draw do
 
   #get '/project_managers/:project_manager_id/applications/:id/edit(.:format)' => 'applications#edit', :as => 'edit_project_manager_application'
   
-  match '/applications/:id/' => 'applications#create', :as => '_application'
-  get '/applications/:id/edit' => 'applications#edit', :as => 'edit_application'
+  #match '/applications/:id/' => 'applications#create', :as => '_application'
+  #get '/applications/:id/edit' => 'applications#edit', :as => 'edit_application'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -2,7 +2,8 @@ class ApplicationsController < ApplicationController
   # GET /applications
   # GET /applications.json
   def index
-    @applications = Application.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+    #@applications = Application.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
+    @applications = Application.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @applications }
@@ -36,37 +37,37 @@ class ApplicationsController < ApplicationController
   # end
 
   def edit
-    session[:application_params] ||= params[:application_id]
+    session[:application_params] ||= params[:application]
 
-    @application = Application.find_by_id(params[:id])
+    @application = Application.find(params[:id])
     @application.current_step = session[:application_step]
 
   end
 
   # POST /applications
   # POST /applications.json
-  def create
-  session[:application_params].deep_merge!(params[:application]) if params[:application]
-  @application = Application.new(session[:application_params])
-  @application.current_step = session[:application_step]
-  if @application.valid?
-    if params[:back_button]
-      @application.previous_step
-    elsif @application.last_step?
-      @application.save if @application.all_valid?
-    else
-      @application.next_step
-    end
-    session[:application_step] = @application.current_step
-  end
-  if @application.new_record?
-    render "new"
-  else
-    session[:application_step] = session[:application_params] = nil
-    flash[:notice] = "application saved!"
-    redirect_to @application
-  end
-  end
+  # def create
+  # session[:application_params].deep_merge!(params[:application]) if params[:application]
+  # @application = Application.new(session[:application_params])
+  # @application.current_step = session[:application_step]
+  # if @application.valid?
+  #   if params[:back_button]
+  #     @application.previous_step
+  #   elsif @application.last_step?
+  #     @application.save if @application.all_valid?
+  #   else
+  #     @application.next_step
+  #   end
+  #   session[:application_step] = @application.current_step
+  # end
+  # if @application.new_record?
+  #   render "new"
+  # else
+  #   session[:application_step] = session[:application_params] = nil
+  #   flash[:notice] = "application saved!"
+  #   redirect_to @application
+  # end
+  # end
 
   # PUT /applications/1
   # PUT /applications/1.json
@@ -88,20 +89,20 @@ class ApplicationsController < ApplicationController
 
    def update
     session[:application_params].deep_merge!(params[:application]) if params[:application]
-    @application = Application.find(params[:id])
+    @application = Application.find_by_project_manager_id(params[:project_manager_id])
     @application.current_step = session[:application_step]
     if @application.valid?
     if params[:back_button]
         @application.previous_step
-  elsif @application.last_step?
+      elsif @application.last_step?
       @application.update_attributes(params[:application]) if @application.all_valid?
     else
      @application.next_step 
    end
     session[:application_step] = @application.current_step
   end
-    if @application.save
-      render "new"
+    if @application.update_attributes(params[:application])
+      render action: "new"
     else
       session[:application_step] = session[:application_params] = nil
     flash[:notice] = "application saved!"
