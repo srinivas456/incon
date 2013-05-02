@@ -42,17 +42,21 @@ gem 'jquery-rails'
 
 #Authentication
 gem 'devise'
-
+#gem "jquery-fileupload-rails", "~> 0.4.1"
 #Views
 gem "simple_form"
 gem 'will_paginate', "3.0.pre4"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem "json", "~> 1.7.7"
-gem 'jquery-minicolors-rails'
+#gem 'jquery-minicolors-rails'
 gem 'client_side_validations'
 
 
 #Mongodb
 gem "mongoid", "~> 2.4"
 gem "bson_ext", "~> 1.5"
+
+#File Upload for different sizes
+gem "rmagick", "~> 2.13.2"
+gem "carrierwave", "~> 0.8.0"
