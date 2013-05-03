@@ -5,15 +5,14 @@
   <title>Mobilous AppExe Console</title>
   <script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <!--<script type="text/javascript" src="js/jquery.inputfocus-0.9.min.js"></script>
-  <script type="text/javascript" src="js/jquery.main.js"></script> -->
-  <script src="/assets/bootstrap.min.js" type="text/javascript"></script>
-    <script src="/assets/bootstrap-fileupload.min.js" type="text/javascript"></script> 
-  <link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.ico" />
+  <script src="/assets/bootstrap-colorpicker.js" type="text/javascript"></script>
+   <script type="text/javascript" src="/assets/jquery.sectionnavigator.js"></script>
+  <!--<script type="text/javascript" src="/assets/jquery.min.js"></script> -->
 
+  <link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.ico" />
   <%= stylesheet_link_tag "application" %>
-  <%#= javascript_include_tag :application %>
   <link rel="stylesheet" href="/application.css" />
+   <%= javascript_include_tag "application" %>
   <!--[if IE 7]>
     <link rel="stylesheet" type="text/css" href="/stylesheets/ie7.css" />
   <![endif]-->
@@ -37,7 +36,8 @@
                 <ul class="menu dualfish">
         <%# if @current_user %>
         <%# if user_dashboard? %>
-                 <li><%=link_to 'Dashboard' %> | <%= link_to 'Build App'%> | <%= link_to 'Test App' %> | <%= link_to 'Release App' %> |<%= link_to 'Submit App' %> | <%= link_to 'Support' %> | <%= link_to 'Help' %></li>
+                 <li><%=link_to 'Dashboard' %> | <%= link_to 'Build App'%> | <%= link_to 'Test App' %> | <%= link_to 'Release App' %> |<%= link_to 'Submit App' %> | <%= link_to 'Support' %> | <%= link_to 'Help' %> |
+                 <%= link_to 'Logout', destroy_user_session_path, :method => :delete  %></li>
  
                 </ul>
               </div><!-- menu xtc-wrapper -->

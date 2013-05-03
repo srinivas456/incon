@@ -1,6 +1,9 @@
 class ProjectManagersController < ApplicationController
   # GET /project_managers
   # GET /project_managers.json
+  before_filter :authenticate_user!
+
+  
   def index
     @project_managers = ProjectManager.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
     respond_to do |format|
