@@ -42,7 +42,7 @@ gem 'jquery-rails'
 
 #Authentication
 gem 'devise'
-
+gem "jquery-fileupload-rails", "~> 0.4.1"
 #Views
 gem "simple_form"
 gem 'will_paginate', "3.0.pre4"
@@ -54,5 +54,5 @@ gem 'client_side_validations'
 
 
 #Mongodb
-gem "mongoid", "~> 2.4"
-gem "bson_ext", "~> 1.5"
+# gem "mongoid", "~> 2.4"
+# gem "bson_ext", "~> 1.5"

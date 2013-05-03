@@ -1,10 +1,49 @@
-<%= simple_form_for @application, :url => {:action => :update} do |f| %>
-<%#= f.hidden_field :project_manager_id, :value => "id" %>
-<%#= f.hidden_field :project_manager_id, :value => @project.project_manager_id %>
-<%= render "#{@application.current_step}_step", :f => f %></br>
+<%= simple_form_for(@application) do |f| %>
+  
+  <div id="master">
+    <div class="section">
+      <h2>Stage 1</h2>
+      <label>Application Name</label>
+   <%= f.hidden_field :project_manager_id, :value => @application.project_manager_id %>
+      <label>Device Type</label>
+ <%= f.input :device_type, :label => '', :collection => ["Phone", "Tablet", "Both"], :as => :radio, :set_default => :Phone %>
+
+     
+    </div>
+    <div class="section">
+      <h2>website</h2>
+      <label>Application Name</label>
+       <%= f.input :application_name %>
+      <label> Version </label>
+        <%= f.input :version %>
+      <label>Application Type</label>
+      <%= f.input :application_type, :label => '', :collection => ["Navi-Based","Tab-Based","View-Based"], :as => :radio, :set_default => "Navi-Based" %>
+      <br />
+      
+    </div>
+
+    <div class="section">
+      <h2>Stage 3</h2>
+      <label>File Upload </label>
+      <%= f.file_field :attach %><br>
+      <input type="button" id="master_preview" value="Preview" />
+    </div>
 
 
- <%= f.submit "Next" %>
- <%= f.submit "Back", :name => "back_button" %>
-</div>
-<%end%>
+    <div class="section">
+      <h2>Stage 3</h2>
+      <label>password_confirmation</label>
+      <%= f.input :orientation, :label => '', :collection => ["Portrait", "Upside Down", "Landscape left", "Landscape Right"], :set_default => "Portrait"%>      <input type="button" id="master_preview" value="Preview" />
+         <%= f.input :style, :collection => ["Default", "Black Opaque", "Black Translucent", "Custom Color"], :as => :radio %>
+
+      <%= f.submit%>
+    </div>
+
+  </div>
+  <% end %>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('#master').sectionnavigator();
+  });
+  </script>

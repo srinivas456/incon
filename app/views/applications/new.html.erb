@@ -1,14 +1,8 @@
-<h2 class="Title4"></h2>
+<div class="ContentsForm">
+	
 
-
-<%= simple_form_for @application do |f| %>
-
-<%= render "#{@application.current_step}_step", :f => f %></br>
-<div id = "actions">
-
-<%= f.submit "Back", :name => "back_button" %>
-<%= f.submit "Next" %>
+	<%= render 'form' %>
+	
 </div>
-<% end %>
 
 <%#= link_to 'Back', applications_path %>
