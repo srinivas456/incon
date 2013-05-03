@@ -6,8 +6,10 @@ class Application
   field :nav_color, :type => String
   field :application_type, :type => String
   field :device_type, :type => String
-  field :attach_file_name, :type => String
-  field :attach_file_size, :type => String
+  field :image, :type => String
+  field :imagelr, :type => String
+  field :photolr, :type => String
+  field :photohr, :type => String
   field :orientation, :type => String
   field :style, :type => String
   field :project_manager_id, :type => Integer
@@ -16,12 +18,16 @@ class Application
   # field :navigation_color, :type => Text 
   # referenced_in :project_manager
 
-  attr_accessible :application_name, :project_manager_id, :device_type, :tab_color, :nav_color, :application_type , :version, :attach_file_name, :attach, :style, :orientation
+  attr_accessible :application_name, :project_manager_id, :device_type, :tab_color, :nav_color, :application_type , :version, :image, :style, :orientation, :imagelr, :photolr, :photohr
   attr_writer :current_step
   #validates :application_name, :presence => true
 
   belongs_to :project_manager, :class_name => "ProjectManager", :foreign_key => "project_manager_id"
   
+  mount_uploader :image, ImageUploader
+  mount_uploader :imagelr, ImagelrUploader
+  mount_uploader :photolr, PhotolrUploader
+  mount_uploader :photohr, PhotohrUploader
 
   #has_attached_file :attach
 

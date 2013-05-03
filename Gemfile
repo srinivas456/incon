@@ -50,10 +50,15 @@ gem 'will_paginate', "3.0.pre4"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 gem "json", "~> 1.7.7"
-gem 'jquery-minicolors-rails'
+#gem 'jquery-minicolors-rails'
 gem 'client_side_validations'
 
 
 #Mongodb
 gem "mongoid", "~> 3.1.3"
 gem "bson_ext", "~> 1.8.5"
+
+#Imageupload in Mongodb
+gem "rmagick", "~> 2.13.2"
+gem "carrierwave", "~> 0.8.0"
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'

@@ -1,21 +1,60 @@
 <div class="ContentsForm">
 	<h4> App Property :: Icons and Images </h4> 
 	
-	Click on the required boxes to upload required imaged for your App. </br></br>
+	Click on the required boxes to upload required imaged for your App. </br>
 	<div id = "page-form">
 	 <p>High Resolution &nbsp;| &nbsp; Low Resolution </p>
-</div>
+	</div>
 
 <p> Application Icon </p>
 	<div id ="icon-form">
-    <%#= f.input :attach_file_name %>
-     <img src="/assets/phone.jpg" width="50" height="50"> &nbsp;&nbsp;&nbsp;&nbsp;<img src="/assets/phone.jpg" width="70" height="80">
-	 <%#= f.file_field :attach %><br>
-</div>
-<p> Splash Image </p>
-<div id ="icon-form">
-<%#= f.input :attach_file_name %>
- <img src="/assets/phone.jpg" width="100" height="150">&nbsp;&nbsp;&nbsp;&nbsp;<img src="/assets/phone.jpg" width="120" height="160">&nbsp;&nbsp;&nbsp;&nbsp;<img src="/assets/phone.jpg" width="140" height="180">
- <%#= f.file_field :attach %><br>
-</div>
+
+		<div id = "icon-left" >
+			
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 80px; height: 70px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 80px; max-height: 100px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :imagelr, :type => "file" %><!-- <input type="file" /> --></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+		</div>
+		</div>
+
+		<div id = "icon-right" style="margin-left: 200px; margin-top: -120px;">
+		<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 60px; height: 50px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 60px; max-height: 90px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :image, :type => "file" %><!-- <input type="file" /> --></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+		</div>
+		
+	 </div>
+</div></br>
   </div>
+<p> Splash Image </p>
+<div id ="image-form" style="width: 352px; height: 185px;">
+			&nbsp;&nbsp;&nbsp;&nbsp;
+			<div id = "icon-left" >
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 80px; height: 100px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 60px; max-height: 120px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :photohr, :type => "file" %><!-- <input type="file" /> --></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+		</div>
+		</div>
+
+
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div id = "icon-right" style="margin-left: 200px; margin-top: -170px;">
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 80px; height: 100px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 80px; max-height: 120px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :photolr, :type => "file" %><!-- <input type="file" /> --></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+		</div>
+		</div>
+
+ 

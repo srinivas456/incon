@@ -1,3 +1,4 @@
+
 class ApplicationsController < ApplicationController
   # GET /applications
   # GET /applications.json
@@ -86,29 +87,54 @@ class ApplicationsController < ApplicationController
   #   end
   # end
 
-
-   def update
-    session[:application_params].deep_merge!(params[:application]) if params[:application]
-    @application = Application.find_by_project_manager_id(params[:project_manager_id])
+  def update
+    #session[:application_params] = params[:application]
+    #session[:application_params].deep_merge!(params[:application]) if params[:application]  
+    @application = Application.find_by_id(session[:application_id])
+    #session[:application_params].deep_merge!(params[:application]) if params[:application]
     @application.current_step = session[:application_step]
     if @application.valid?
     if params[:back_button]
         @application.previous_step
-      elsif @application.last_step?
-      @application.update_attributes(params[:application]) if @application.all_valid?
+  elsif @application.last_step?
+      @application.update_attributes(session[:application_id]) if @application.all_valid?
     else
      @application.next_step 
    end
     session[:application_step] = @application.current_step
   end
-    if @application.update_attributes(params[:application])
-      render action: "new"
+    if @application.save
+      render "new"
     else
       session[:application_step] = session[:application_params] = nil
     flash[:notice] = "application saved!"
       redirect_to @application
     end
     end
+
+
+  #  def update
+  #   #session[:application_params].deep_merge!(params[:application]) if params[:application]
+  #   @application = Application.find_by_id(params[:project_manager_id])
+  #   @application.current_step = session[:application_step]
+  #   if @application.valid?
+  #   if params[:back_button]
+  #       @application.previous_step
+  #     elsif @application.last_step?
+  #     @application.update_attributes(params[:application]) if @application.all_valid?
+  #   else
+  #    @application.next_step 
+  #  end
+  #   session[:application_step] = @application.current_step
+  # end
+  #   if @application.update_attributes(params[:application])
+  #     render action: "new"
+  #   else
+  #     session[:application_step] = session[:application_params] = nil
+  #   flash[:notice] = "application saved!"
+  #     redirect_to @application
+  #   end
+  #   end
 
   # DELETE /applications/1
   # DELETE /applications/1.json

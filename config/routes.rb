@@ -6,6 +6,10 @@ Incon::Application.routes.draw do
   resources :applications
   devise_for :users
 
+
+
+  
+match "/upload/grid/*path" => "gridfs#serve"
   # resources :project_managers do 
   #   resources :applications
   # end  

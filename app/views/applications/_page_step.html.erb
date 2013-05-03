@@ -7,10 +7,10 @@ Using these properties one can define how the pages wood look and feel in the mo
 	<%#= f.collection_check_boxes :options, [[true, 'Yes'] ,[false, 'No']], :Portrait, :last %>
 	<h4>Tab Property</h4>
 	Tint :
-	<%= f.input :tab_color, :label => '', as: :minicolors %>
+	<%= f.input :tab_color, :label => '' %>
 	<div id= "sidebar-property">
 	<h4>Navigation Property</h4>
-	Tint : <%= f.input :nav_color, :label => '', :type => "text", as: :minicolors, :class => "column" %>
+	Tint : <%= f.input :nav_color, :label => '', :type => "text", :class => "column" %>
 	<div id ="radio-btn">
    <%= f.input :style, :collection => ["Default", "Black Opaque", "Black Translucent", "Custom Color"], :as => :radio %>
 	</div>
