@@ -38,11 +38,11 @@ class ApplicationsController < ApplicationController
   # end
 
    def edit
-    @application = Application.find_by_id(params[:id])
+    @application = Application.find(params[:id])
   end
 
   def update
-    @application = Application.find_by_id(params[:id])
+    @application = Application.find(params[:id])
 
     respond_to do |format|
       if @application.update_attributes(params[:application])
