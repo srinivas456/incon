@@ -70,26 +70,56 @@
 
 			<p> Application Icon </p>
 			<div id ="icon-form">
-		<div class="fileupload fileupload-new" data-provides="fileupload">
-		<div class="fileupload-new thumbnail" style="width: 60px; height: 80px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
-		<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 60px; max-height: 80px; line-height: 20px;"></div>
-		<div>
-		<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :image, :type => "file" %><!-- <input type="file" /> --></span>
-		<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+				<div id = "icon-left" >
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 60px; height: 80px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 60px; max-height: 80px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :image, :type => "file" %></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+				</div>
+			</div>
+
+			<div id = "icon-right" style="margin-left: 200px; margin-top: -120px;">
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 60px; height: 50px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 60px; max-height: 90px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :image, :type => "file" %></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
 		</div>
-			
+		
+	 </div>
+	</br>
 
 		</div>
 		<p> Splash Image </p>
 		<div id ="icon-form">
-		<%#= f.input :attach_file_name %>
-		 <img src="/assets/phone.jpg" width="100" height="150">&nbsp;&nbsp;&nbsp;&nbsp;<img src="/assets/phone.jpg" width="120" height="160">&nbsp;&nbsp;&nbsp;&nbsp;<img src="/assets/phone.jpg" width="140" height="180">
-		 <%#= f.file_field :attach %><br>
+			<div id = "icon-left" >
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 60px; height: 80px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 60px; max-height: 80px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :image, :type => "file" %><!-- <input type="file" /> --></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+				</div>
+			</div></div>
+
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div id = "icon-right" style="margin-left: 200px; margin-top: -170px;">
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 80px; height: 100px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 80px; max-height: 120px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :photolr, :type => "file" %><!-- <input type="file" /> --></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+		</div> </div></div>
+
 		</div>
 		  </div>
-    </div>
-
-    </div>
+		    </div>
+		</div>
+		    </div>
 
      <div class="section">
     	<div class="ContentsForm">
@@ -98,18 +128,26 @@
 
 		<h4>Page Control :</h4>
 			<%= f.input :orientation, :label => '', :collection => ["Portrait", "Upside Down", "Landscape left", "Landscape Right"], :set_default => "Portrait"%>
-			<%#= f.collection_check_boxes :options, [[true, 'Yes'] ,[false, 'No']], :Portrait, :last %>
+
 			<h4>Tab Property</h4>
 			Tint :
-			<%#= f.input :tab_color, :label => '', as: :minicolors %>
+			<div class="input-append color" data-color="rgb(255, 146, 180)" data-color-format="rgb" id="cp3">
+
+			<input type="hidden"  value="" readonly="" name = "tab_color"  > 
+				<span class="add-on"><i style="background-color: rgb(255, 146, 180);"></i></span>
+          </div>
 			<div id= "sidebar-property">
 			<h4>Navigation Property</h4>
-			Tint : <%#= f.input :nav_color, :label => '', :type => "text", as: :minicolors, :class => "column" %>
+			Tint : 
+				<div class="input-append color" data-color="rgb(255, 146, 180)" data-color-format="rgb" id="cp3">
+				<input type="hidden"  value="" readonly="" name = "navigation_color" >
+				<span class="add-on"><i style="background-color: rgb(255, 146, 180);"></i></span>
+          </div>
 			<div id ="radio-btn">
 		   <%= f.input :style, :collection => ["Default", "Black Opaque", "Black Translucent", "Custom Color"], :as => :radio %>
-		   <%#= f.file_field :image %>
 
-    <%= f.submit %>
+
+   			 <%= f.submit %>
 			</div>
 			</div>
 
@@ -127,13 +165,9 @@
   </script>
 
 
-<%#= simple_form_for @application, :url => {:action => :update} do |f| %>
-<%#= f.hidden_field :project_manager_id, :value => "id" %>
-<%#= f.hidden_field :project_manager_id, :value => @project.project_manager_id %>
-<%#= render "#{@application.current_step}_step", :f => f %>
-
-
- <%#= f.submit "Next" %>
- <%#= f.submit "Back", :name => "back_button" %>
-
-<%#end%>
+	<script type="text/javascript">        
+	  $(document).ready(function()
+	    {
+	$('.input-append ').colorpicker()
+	    });
+	</script>

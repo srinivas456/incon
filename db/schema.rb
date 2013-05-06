@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(:version => 20130415060928) do
     t.string   "orientation"
     t.string   "style"
     t.string   "image"
+    t.string   "imagelr"
+    t.string   "photolr"
+    t.string   "photohr"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

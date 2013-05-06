@@ -40,14 +40,10 @@
      <%= link_to raw("<i class='icon-tasks'></i> Test") %> </br></td>
     </div>
     <% end %>
-    </table>
+    </table></br>
     
     
 </div> </br>
     <div class="pagination">
        <%= will_paginate @project_managers %>
     </div>
-
-     <%#= link_to raw("<i class='icon-edit'></i> Edit"), new_application_path(@project_manager.id) %> 
-     <%#= link_to raw("<i class='icon-edit'></i> Edit"), edit_project_manager_application_path(application.id) %>
-          <%#= link_to raw("<i class='icon-edit'></i> Edit"), new_application_path(:project_manager_id => project_manager.id) %>
