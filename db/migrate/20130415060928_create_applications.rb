@@ -14,6 +14,10 @@ class CreateApplications < ActiveRecord::Migration
       t.integer :project_manager_id
       t.string :orientation
       t.string :style
+      t.string :image
+      t.string :imagelr
+      t.string :photolr
+      t.string :photohr
       t.timestamps
     end
   end

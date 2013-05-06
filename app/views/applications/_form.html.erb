@@ -1,10 +1,173 @@
-<%= simple_form_for @application, :url => {:action => :update} do |f| %>
-<%#= f.hidden_field :project_manager_id, :value => "id" %>
-<%#= f.hidden_field :project_manager_id, :value => @project.project_manager_id %>
-<%= render "#{@application.current_step}_step", :f => f %></br>
+<%= simple_form_for(@application) do |f| %>
+  
+  <div id="master">
+
+    <div class="section">
+     <div class="ContentsForm">
+	
+	<h4>App Property :: Device Selection</h4>
+		<p> Choose the device type/s on which you want to run your application </p> </br>
+
+		<div class="actionform">
+		<p>Select the device on which you want to run your application</p>
+			  <img src="/assets/phone.jpg" width="140" height="200">
+   			   <img src="/assets/phone.jpg" width="140" height="200">
+    		  <img src="/assets/phone.jpg" width="140" height="200"></br>
+  			 <%= f.hidden_field :project_manager_id, :value => @application.project_manager_id %>
+   			<%= f.input :device_type, :label => '', :collection => ["Phone", "Tablet", "Both"], :as => :radio, :set_default => :Phone %>
+  		 </div>
+	</div>
+    
+
+    </div>
 
 
- <%= f.submit "Next" %>
- <%= f.submit "Back", :name => "back_button" %>
-</div>
-<%end%>
+
+    <div class="section">
+
+      <div class="ContentsForm">
+	  <h4>App Property :: Device Selection</h4>
+	    <p> Choose the device type/s on which you want to run your application </p>
+	  <div class ="">
+	  <p>Select the device on which you want to run your application</p>
+	  <%= f.input :application_name %>
+	  <%= f.input :version %>
+	  <h4> App Navigation Structure </h4>
+	  	  <img src="/assets/phone.jpg" width="160" height="200">
+	          <img src="/assets/phone.jpg" width="160" height="200">
+	          <img src="/assets/phone.jpg" width="160" height="200"></br>
+
+
+	    <div id="radio-btn">
+	   <%= f.input :application_type, :label => '', :collection => ["Navi-Based","Tab-Based","View-Based"], :as => :radio, :set_default => "Navi-Based" %>
+	 </div>
+	</div>
+			<div class= "sidebar">
+	            Supported orientation</br></br>
+	            
+	          <img src="/assets/phone.jpg" width="40" height="60"></br></br>
+	          <img src="/assets/phone.jpg" width="40" height="60"></br></br>
+	          <img src="/assets/phone.jpg" width="40" height="60"></br></br>
+	          <img src="/assets/phone.jpg" width="40" height="60"></br>
+	          <div id="radio-vertical">
+	            <%= f.input :orientation, :label => '', :collection => ["Portrait", "Upside Down", "Landscape left", "Landscape Right"], :as => :radio, :set_default => "Portrait" %>
+	          </div>
+	        </div>
+	        </div>
+    </div>
+
+
+
+
+    <div class="section">
+      <div class="ContentsForm">
+			<h4> App Property :: Icons and Images </h4> 
+	
+			Click on the required boxes to upload required imaged for your App. </br></br>
+			<div id = "page-form">
+				 <p>High Resolution &nbsp;| &nbsp; Low Resolution </p>
+			</div>
+
+			<p> Application Icon </p>
+			<div id ="icon-form">
+				<div id = "icon-left" >
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 60px; height: 80px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 60px; max-height: 80px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :image, :type => "file" %></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+				</div>
+			</div>
+
+			<div id = "icon-right" style="margin-left: 200px; margin-top: -120px;">
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 60px; height: 50px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 60px; max-height: 90px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :image, :type => "file" %></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+		</div>
+		
+	 </div>
+	</br>
+
+		</div>
+		<p> Splash Image </p>
+		<div id ="icon-form">
+			<div id = "icon-left" >
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 60px; height: 80px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 60px; max-height: 80px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :image, :type => "file" %><!-- <input type="file" /> --></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+				</div>
+			</div></div>
+
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<div id = "icon-right" style="margin-left: 200px; margin-top: -170px;">
+			<div class="fileupload fileupload-new" data-provides="fileupload">
+			<div class="fileupload-new thumbnail" style="width: 80px; height: 100px;"><img src="http://www.placehold.it/200x150/EFEFEF/AAAAAA&text=no+image" /></div>
+			<div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 80px; max-height: 120px; line-height: 20px;"></div>
+			<div>
+			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><%= f.file_field :photolr, :type => "file" %><!-- <input type="file" /> --></span>
+			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+		</div> </div></div>
+
+		</div>
+		  </div>
+		    </div>
+		</div>
+		    </div>
+
+     <div class="section">
+    	<div class="ContentsForm">
+		<h4>Page Style:: Tab-Based </h4>
+		Using these properties one can define how the pages wood look and feel in the mobile
+
+		<h4>Page Control :</h4>
+			<%= f.input :orientation, :label => '', :collection => ["Portrait", "Upside Down", "Landscape left", "Landscape Right"], :set_default => "Portrait"%>
+
+			<h4>Tab Property</h4>
+			Tint :
+			<div class="input-append color" data-color="rgb(255, 146, 180)" data-color-format="rgb" id="cp3">
+
+			<input type="hidden"  value="" readonly="" name = "tab_color"  > 
+				<span class="add-on"><i style="background-color: rgb(255, 146, 180);"></i></span>
+          </div>
+			<div id= "sidebar-property">
+			<h4>Navigation Property</h4>
+			Tint : 
+				<div class="input-append color" data-color="rgb(255, 146, 180)" data-color-format="rgb" id="cp3">
+				<input type="hidden"  value="" readonly="" name = "navigation_color" >
+				<span class="add-on"><i style="background-color: rgb(255, 146, 180);"></i></span>
+          </div>
+			<div id ="radio-btn">
+		   <%= f.input :style, :collection => ["Default", "Black Opaque", "Black Translucent", "Custom Color"], :as => :radio %>
+
+
+   			 <%= f.submit %>
+			</div>
+			</div>
+
+
+		</div>
+
+
+  </div>
+  <% end %>
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $('#master').sectionnavigator();
+  });
+  </script>
+
+
+	<script type="text/javascript">        
+	  $(document).ready(function()
+	    {
+	$('.input-append ').colorpicker()
+	    });
+	</script>

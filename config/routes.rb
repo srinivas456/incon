@@ -1,24 +1,23 @@
 Incon::Application.routes.draw do
   
 
+  devise_for :users do
+  get "/users/sign_out" => "devise/sessions#destroy", :as => :destroy_user_session
+  end
 
   resources :project_managers 
   resources :applications
-  devise_for :users
 
-
-
-  
-match "/upload/grid/*path" => "gridfs#serve"
   # resources :project_managers do 
   #   resources :applications
   # end  
   
 
+
   #get '/project_managers/:project_manager_id/applications/:id/edit(.:format)' => 'applications#edit', :as => 'edit_project_manager_application'
   
-  #match '/applications/:id/' => 'applications#create', :as => '_application'
-  #get '/applications/:id/edit' => 'applications#edit', :as => 'edit_application'
+  match '/applications/:id/' => 'applications#create', :as => '_application'
+  get '/applications/:id/edit' => 'applications#edit', :as => 'edit_application'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -69,7 +68,7 @@ match "/upload/grid/*path" => "gridfs#serve"
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+   root :to => 'project_managers#new'
 
   # See how all your routes lay out with "rake routes"
 

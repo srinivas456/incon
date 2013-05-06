@@ -37,12 +37,22 @@ class ApplicationsController < ApplicationController
   #   @application = Application.find_by_id(params[:id])
   # end
 
-  def edit
-    session[:application_params] ||= params[:application]
+   def edit
+    @application = Application.find_by_id(params[:id])
+  end
 
-    @application = Application.find(params[:id])
-    @application.current_step = session[:application_step]
+  def update
+    @application = Application.find_by_id(params[:id])
 
+    respond_to do |format|
+      if @application.update_attributes(params[:application])
+        format.html { redirect_to @application, notice: 'Application was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @application.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # POST /applications
@@ -70,57 +80,18 @@ class ApplicationsController < ApplicationController
   # end
   # end
 
-  # PUT /applications/1
-  # PUT /applications/1.json
-  # def update
-  #   #@application = Application.find(params[:id])
-  #   @application = Application.find_by_project_manager_id(params[:project_manager_id])
-
-  #   respond_to do |format|
-  #     if @application.update_attributes(params[:application])
-  #       format.html { redirect_to @application, notice: 'Project manager was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @application.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
-
-  def update
-    #session[:application_params] = params[:application]
-    #session[:application_params].deep_merge!(params[:application]) if params[:application]  
-    @application = Application.find_by_id(session[:application_id])
-    #session[:application_params].deep_merge!(params[:application]) if params[:application]
-    @application.current_step = session[:application_step]
-    if @application.valid?
-    if params[:back_button]
-        @application.previous_step
-  elsif @application.last_step?
-      @application.update_attributes(session[:application_id]) if @application.all_valid?
-    else
-     @application.next_step 
-   end
-    session[:application_step] = @application.current_step
-  end
-    if @application.save
-      render "new"
-    else
-      session[:application_step] = session[:application_params] = nil
-    flash[:notice] = "application saved!"
-      redirect_to @application
-    end
-    end
-
 
   #  def update
+  #   session[:application_params] = params[:application]
+  #   #session[:application_params].deep_merge!(params[:application]) if params[:application]  
+  #   @application = Application.find(params[:id])
   #   #session[:application_params].deep_merge!(params[:application]) if params[:application]
   #   @application = Application.find_by_id(params[:project_manager_id])
   #   @application.current_step = session[:application_step]
   #   if @application.valid?
   #   if params[:back_button]
   #       @application.previous_step
-  #     elsif @application.last_step?
+  # elsif @application.last_step?
   #     @application.update_attributes(params[:application]) if @application.all_valid?
   #   else
   #    @application.next_step 
