@@ -16,12 +16,12 @@
 		$(this).parent().prepend('<div id="' + masterReference + '_navigator" style="display:none"></div>');
 
 		//create numbered links
-		$(this).children().each( function(index){ 
-			if($('#' + masterReference + '_navigator').html() != ""){
-				$('#' + masterReference + '_navigator').append(' | ');
-			}	
-			$('#' + masterReference + '_navigator').append('<a stylehref="#" class="mnav_link" rel="sn_section_' + masterReference + '_' + index + '">' + (index+1) + '</a>');
-		});	
+		// $(this).children().each( function(index){ 
+		// 	if($('#' + masterReference + '_navigator').html() != ""){
+		// 		$('#' + masterReference + '_navigator').append(' | ');
+		// 	}	
+		// 	$('#' + masterReference + '_navigator').append('<a stylehref="#" class="mnav_link" rel="sn_section_' + masterReference + '_' + index + '">' + (index+1) + '</a>');
+		// });	
 		
 		
 		//put in next and prev buttons
@@ -62,4 +62,6 @@
 		return this;
 		
 	};
+
+	
 })(jQuery);

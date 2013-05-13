@@ -353,7 +353,17 @@ height: 60px;
   margin-left: -25px;
 
 }
-input radio_buttons optional application_device_type
+
+.next {
+  margin-top: 450px;
+  margin-right: 80px; 
+}
+
+#next {
+
+  margin-left: 320px;
+  margin-top: 75px
+}
 
 
 /* File Upload */

@@ -45,12 +45,12 @@
 			<div class= "sidebar">
 	            Supported orientation</br></br>
 	            
+	          <!-- <img src="/assets/phone.jpg" width="40" height="60"></br></br>
 	          <img src="/assets/phone.jpg" width="40" height="60"></br></br>
 	          <img src="/assets/phone.jpg" width="40" height="60"></br></br>
-	          <img src="/assets/phone.jpg" width="40" height="60"></br></br>
-	          <img src="/assets/phone.jpg" width="40" height="60"></br>
+	          <img src="/assets/phone.jpg" width="40" height="60"></br> -->
 	          <div id="radio-vertical">
-	            <%= f.input :orientation, :label => '', :collection => ["Portrait", "Upside Down", "Landscape left", "Landscape Right"], :as => :radio, :set_default => "Portrait" %>
+	            <%#= f.input :orientation, :label => '', :collection => ["Portrait", "Upside Down", "Landscape left", "Landscape Right"], :as => :radio, :set_default => "Portrait" %>
 	          </div>
 	        </div>
 	        </div>
@@ -147,7 +147,8 @@
 		   <%= f.input :style, :collection => ["Default", "Black Opaque", "Black Translucent", "Custom Color"], :as => :radio %>
 
 
-   			 <%= f.submit %>
+			<%= f.submit "Next", :id => "next" %>
+   			 <%#= f.submit %>
 			</div>
 			</div>
 

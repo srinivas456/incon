@@ -36,7 +36,7 @@
      <td><%= link_to raw("<i class='icon-edit'></i> Edit"), edit_application_path(:id => project_manager.applications.first.id) %> <!-- Has Many --> |
      <%= link_to raw("<i class='icon-trash'></i> Delete"), project_manager, method: :delete, :data => { :confirm => "Are you sure you want to delete ?" } %> |
      <%= link_to raw("<i class='icon-ok-sign'></i> Publish") %> |
-     <%= link_to raw("<i class='icon-download'> </i> Clone") %>  |
+     <%#= link_to raw("<i class='icon-download'> </i> Clone") %> 
      <%= link_to raw("<i class='icon-tasks'></i> Test") %> </br></td>
     </div>
     <% end %>
